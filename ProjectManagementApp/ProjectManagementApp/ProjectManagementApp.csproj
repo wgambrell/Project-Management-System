@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Effort.cs" />
     <Compile Include="InitialProjectSetup.cs">
       <SubType>Form</SubType>
     </Compile>
