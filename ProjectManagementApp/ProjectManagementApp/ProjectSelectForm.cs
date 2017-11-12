@@ -13,12 +13,16 @@ namespace ProjectManagementApp
 {
     public partial class ProjectSelectForm : Form
     {
+        int selProjListIndex = 0;   //Index of currently selected file in the Project Selection window - to easily delete the currently selected project and to access the currently selected project. 
+        String[] projects;          //List of Project file names, without file paths - to more easily read the Project Selection List
+        String[] projectSaves;      //Lit of Project file names, with file paths - to more easily locate and delete/access files in the Project Selection list
         public ProjectSelectForm() //Creates a directory in Documents folder called "Project Management System", Populates the Project List in the window with all file names in there.
         {
+
             InitializeComponent();
             Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System");
-            String[] projects = Directory.GetFiles(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System");
-            String[] projectSaves = Directory.GetFiles(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System");
+            projects = Directory.GetFiles(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System");
+            projectSaves = Directory.GetFiles(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System");
             for (int i = 0; i < projects.Length; i++)
             {
                 for (int j = projects[i].Length-1; j > 0; j--)
@@ -42,7 +46,7 @@ namespace ProjectManagementApp
 
         private void SelProjList_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            selProjListIndex = SelProjList.SelectedIndex - 1; 
         }
 
         private void DelSelProjButton_Click(object sender, EventArgs e)
