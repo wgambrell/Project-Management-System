@@ -28,67 +28,83 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.SelProjList = new System.Windows.Forms.ListBox();
+            this.CreNewProButton = new System.Windows.Forms.Button();
+            this.DelSelProjButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.SelProjButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // SelProjList
             // 
-            this.textBox1.Location = new System.Drawing.Point(177, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(292, 20);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "Welcome! Select Your Projeet";
+            this.SelProjList.FormattingEnabled = true;
+            this.SelProjList.Location = new System.Drawing.Point(200, 100);
+            this.SelProjList.Name = "SelProjList";
+            this.SelProjList.Size = new System.Drawing.Size(400, 290);
+            this.SelProjList.TabIndex = 1;
+            this.SelProjList.SelectedIndexChanged += new System.EventHandler(this.SelProjList_SelectedIndexChanged);
             // 
-            // listBox1
+            // CreNewProButton
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(177, 63);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(454, 329);
-            this.listBox1.TabIndex = 1;
+            this.CreNewProButton.Location = new System.Drawing.Point(339, 400);
+            this.CreNewProButton.Name = "CreNewProButton";
+            this.CreNewProButton.Size = new System.Drawing.Size(126, 30);
+            this.CreNewProButton.TabIndex = 2;
+            this.CreNewProButton.Text = "Create New Project";
+            this.CreNewProButton.UseVisualStyleBackColor = true;
+            this.CreNewProButton.Click += new System.EventHandler(this.CreNewProButton_Click);
             // 
-            // button1
+            // DelSelProjButton
             // 
-            this.button1.Location = new System.Drawing.Point(177, 410);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(211, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Create New Project";
-            this.button1.UseVisualStyleBackColor = true;
+            this.DelSelProjButton.Location = new System.Drawing.Point(471, 400);
+            this.DelSelProjButton.Name = "DelSelProjButton";
+            this.DelSelProjButton.Size = new System.Drawing.Size(133, 30);
+            this.DelSelProjButton.TabIndex = 3;
+            this.DelSelProjButton.Text = "Delete Selected Project";
+            this.DelSelProjButton.UseVisualStyleBackColor = true;
+            this.DelSelProjButton.Click += new System.EventHandler(this.DelSelProjButton_Click);
             // 
-            // button2
+            // label1
             // 
-            this.button2.Location = new System.Drawing.Point(409, 409);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(222, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Delete Selecte Project";
-            this.button2.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(177, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(149, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Welcome! Select Your Project";
+            // 
+            // SelProjButton
+            // 
+            this.SelProjButton.Location = new System.Drawing.Point(200, 400);
+            this.SelProjButton.Name = "SelProjButton";
+            this.SelProjButton.Size = new System.Drawing.Size(133, 30);
+            this.SelProjButton.TabIndex = 5;
+            this.SelProjButton.Text = "Select Project";
+            this.SelProjButton.UseVisualStyleBackColor = true;
             // 
             // ProjectSelectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 558);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.SelProjButton);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.DelSelProjButton);
+            this.Controls.Add(this.CreNewProButton);
+            this.Controls.Add(this.SelProjList);
             this.Name = "ProjectSelectForm";
             this.Text = "ProjectSelectForm";
+            this.Load += new System.EventHandler(this.ProjectSelectForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ListBox SelProjList;
+        private System.Windows.Forms.Button CreNewProButton;
+        private System.Windows.Forms.Button DelSelProjButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button SelProjButton;
     }
 }

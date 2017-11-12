@@ -1,0 +1,11 @@
+C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.csprojResolveAssemblyReference.cache
+C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.InitialProjectSetup.resources
+C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.ProjectSelectForm.resources
+C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.Properties.Resources.resources
+C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.csproj.GenerateResource.Cache
+C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.csproj.CoreCompileInputs.cache
+C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\bin\Debug\ProjectManagementApp.exe.config
+C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\bin\Debug\ProjectManagementApp.exe
+C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\bin\Debug\ProjectManagementApp.pdb
+C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.exe
+C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.pdb

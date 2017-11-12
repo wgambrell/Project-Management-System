@@ -16,18 +16,20 @@ namespace ProjectManagementApp
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void AddMemberButton_Click(object sender, EventArgs e)
+        {
+            if(TeamMemberNewInputBox.Text != "" )
+            TeamMembersListBox.Items.Add(TeamMemberNewInputBox.Text);
+        }
+        private void AddRiskButton_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        private void FinishSetupButton_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void CancelSetupButton_Click(object sender, EventArgs e)
         {
 
         }
