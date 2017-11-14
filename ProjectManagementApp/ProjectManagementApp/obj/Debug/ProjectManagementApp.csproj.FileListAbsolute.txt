@@ -9,3 +9,4 @@ C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementAp
 C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\bin\Debug\ProjectManagementApp.pdb
 C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.exe
 C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.pdb
+C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.ProjectViewForm.resources
