@@ -16,6 +16,17 @@ namespace ProjectManagementApp
         {
             InitializeComponent();
         }
+        private static ProjectEditWindow _instance;
+
+        public static ProjectEditWindow Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new ProjectEditWindow();
+                return _instance;
+            }
+        }
 
         private void ProjectEditWindow_Load(object sender, EventArgs e)
         {
@@ -50,6 +61,11 @@ namespace ProjectManagementApp
         private void NonfunctionalRequirementsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void SaveProfileButton_Click(object sender, EventArgs e)
+        {
+            ProjectProfileWindow.Instance.BringToFront();
         }
     }
 }

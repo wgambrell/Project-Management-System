@@ -42,6 +42,11 @@ namespace ProjectManagementApp
                 MainPanel = value;
             }
         }
+        public Panel PanelBarControls
+        {
+            get { return TaskbarPanel; }
+            set { TaskbarPanel = value; }
+        }
        
         public void PanelControl(UserControl uc)
         {

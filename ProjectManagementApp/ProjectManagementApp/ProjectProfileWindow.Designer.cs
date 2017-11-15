@@ -51,6 +51,7 @@
             this.EditProfileButton.TabIndex = 1;
             this.EditProfileButton.Text = "Edit Project";
             this.EditProfileButton.UseVisualStyleBackColor = true;
+            this.EditProfileButton.Click += new System.EventHandler(this.EditProfileButton_Click);
             // 
             // label1
             // 

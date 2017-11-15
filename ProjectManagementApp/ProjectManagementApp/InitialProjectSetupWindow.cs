@@ -88,6 +88,35 @@ namespace ProjectManagementApp
         private void FinishSetupButton_Click(object sender, EventArgs e)
         {
 
+            //Creates taskbar
+            if (!ProjectManagementSystem.Instance.PanelBarControls.Controls.Contains(Taskbar.Instance))
+            {
+                ProjectManagementSystem.Instance.PanelBarControls.Controls.Add(Taskbar.Instance);
+                Taskbar.Instance.Dock = DockStyle.Fill;
+                Taskbar.Instance.BringToFront();
+            }
+            else
+            {
+                Taskbar.Instance.BringToFront();  
+            }
+            //Creates Project Profile window and sets it to open
+            if (!ProjectManagementSystem.Instance.Panel1Control.Controls.Contains(ProjectProfileWindow.Instance))
+            {
+                ProjectManagementSystem.Instance.Panel1Control.Controls.Add(ProjectProfileWindow.Instance);
+                ProjectProfileWindow.Instance.Dock = DockStyle.Fill;
+                ProjectProfileWindow.Instance.BringToFront();
+            }
+            else
+            {
+                ProjectProfileWindow.Instance.BringToFront();
+            }
+            //Create Project Effort page
+            ProjectManagementSystem.Instance.Panel1Control.Controls.Add(ProjectEffortManagement.Instance);
+            ProjectEffortManagement.Instance.Dock = DockStyle.Fill;
+
+            ProjectManagementSystem.Instance.Panel1Control.Controls.Remove(InitialProjectSetupWindow.Instance);
+
+
         }
 
         private void CancelSetupButton_Click(object sender, EventArgs e)

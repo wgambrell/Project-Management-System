@@ -68,6 +68,7 @@ namespace ProjectManagementApp
         {
             ProjectManagementSystem.Instance.Panel1Control.Controls.Add(InitialProjectSetupWindow.Instance);
             InitialProjectSetupWindow.Instance.BringToFront();
+            ProjectManagementSystem.Instance.Panel1Control.Controls.Remove(ProjectSelectWindow.Instance);
         }
 
         private void DelSelProjButton_Click(object sender, EventArgs e)

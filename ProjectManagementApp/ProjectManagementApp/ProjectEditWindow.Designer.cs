@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.label6 = new System.Windows.Forms.Label();
-            this.NonfunctionalRequirementsListBox = new System.Windows.Forms.ListBox();
-            this.FunctionalRequirementsListBox = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.RiskListBox = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,6 +47,10 @@
             this.AddTeamMemberButton = new System.Windows.Forms.Button();
             this.AddRiskTextBox = new System.Windows.Forms.TextBox();
             this.AddRisksButton = new System.Windows.Forms.Button();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label6
@@ -59,24 +61,6 @@
             this.label6.Size = new System.Drawing.Size(147, 13);
             this.label6.TabIndex = 27;
             this.label6.Text = "Non-Functional Requirements";
-            // 
-            // NonfunctionalRequirementsListBox
-            // 
-            this.NonfunctionalRequirementsListBox.FormattingEnabled = true;
-            this.NonfunctionalRequirementsListBox.Location = new System.Drawing.Point(622, 360);
-            this.NonfunctionalRequirementsListBox.Name = "NonfunctionalRequirementsListBox";
-            this.NonfunctionalRequirementsListBox.Size = new System.Drawing.Size(506, 173);
-            this.NonfunctionalRequirementsListBox.TabIndex = 26;
-            this.NonfunctionalRequirementsListBox.SelectedIndexChanged += new System.EventHandler(this.NonfunctionalRequirementsListBox_SelectedIndexChanged);
-            // 
-            // FunctionalRequirementsListBox
-            // 
-            this.FunctionalRequirementsListBox.FormattingEnabled = true;
-            this.FunctionalRequirementsListBox.Location = new System.Drawing.Point(622, 116);
-            this.FunctionalRequirementsListBox.Name = "FunctionalRequirementsListBox";
-            this.FunctionalRequirementsListBox.Size = new System.Drawing.Size(506, 173);
-            this.FunctionalRequirementsListBox.TabIndex = 25;
-            this.FunctionalRequirementsListBox.SelectedIndexChanged += new System.EventHandler(this.FunctionalRequirementsListBox_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -167,6 +151,7 @@
             this.SaveProfileButton.TabIndex = 15;
             this.SaveProfileButton.Text = "Finish Editing";
             this.SaveProfileButton.UseVisualStyleBackColor = true;
+            this.SaveProfileButton.Click += new System.EventHandler(this.SaveProfileButton_Click);
             // 
             // AddFunctionalRequirementTextBox
             // 
@@ -236,10 +221,48 @@
             this.AddRisksButton.Text = "Add";
             this.AddRisksButton.UseVisualStyleBackColor = true;
             // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(622, 116);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(463, 169);
+            this.checkedListBox1.TabIndex = 36;
+            // 
+            // checkedListBox2
+            // 
+            this.checkedListBox2.FormattingEnabled = true;
+            this.checkedListBox2.Location = new System.Drawing.Point(622, 364);
+            this.checkedListBox2.Name = "checkedListBox2";
+            this.checkedListBox2.Size = new System.Drawing.Size(463, 169);
+            this.checkedListBox2.TabIndex = 37;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(976, 87);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(109, 23);
+            this.button1.TabIndex = 38;
+            this.button1.Text = "Remove selected";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(976, 339);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(109, 23);
+            this.button2.TabIndex = 39;
+            this.button2.Text = "Remove selected";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // ProjectEditWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.checkedListBox2);
+            this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.AddRisksButton);
             this.Controls.Add(this.AddRiskTextBox);
             this.Controls.Add(this.AddTeamMemberButton);
@@ -249,8 +272,6 @@
             this.Controls.Add(this.AddNonFunctRequirement);
             this.Controls.Add(this.AddFunctionalRequirementTextBox);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.NonfunctionalRequirementsListBox);
-            this.Controls.Add(this.FunctionalRequirementsListBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.RiskListBox);
             this.Controls.Add(this.label4);
@@ -272,8 +293,6 @@
         #endregion
 
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ListBox NonfunctionalRequirementsListBox;
-        private System.Windows.Forms.ListBox FunctionalRequirementsListBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox RiskListBox;
         private System.Windows.Forms.Label label4;
@@ -292,5 +311,9 @@
         private System.Windows.Forms.Button AddTeamMemberButton;
         private System.Windows.Forms.TextBox AddRiskTextBox;
         private System.Windows.Forms.Button AddRisksButton;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox checkedListBox2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

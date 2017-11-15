@@ -16,6 +16,18 @@ namespace ProjectManagementApp
         {
             InitializeComponent();
         }
+        private static ProjectProfileWindow _instance;
+
+        public static ProjectProfileWindow Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new ProjectProfileWindow();
+                return _instance;
+            }
+        }
+      
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -55,6 +67,20 @@ namespace ProjectManagementApp
         private void FunctionalRequirementsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void EditProfileButton_Click(object sender, EventArgs e)
+        {
+            if (!ProjectManagementSystem.Instance.Panel1Control.Controls.Contains(ProjectEditWindow.Instance))
+            {
+                ProjectManagementSystem.Instance.Panel1Control.Controls.Add(ProjectEditWindow.Instance);
+                ProjectEditWindow.Instance.Dock = DockStyle.Fill;
+                ProjectEditWindow.Instance.BringToFront();
+            }
+            else
+            {
+                ProjectEditWindow.Instance.BringToFront();
+            }
         }
     }
 }

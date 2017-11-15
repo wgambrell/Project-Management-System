@@ -16,6 +16,17 @@ namespace ProjectManagementApp
         {
             InitializeComponent();
         }
+        private static Taskbar _instance;
+
+        public static Taskbar Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new Taskbar();
+                return _instance;
+            }
+        }
 
         private void ProjectName_Click(object sender, EventArgs e)
         {
@@ -24,17 +35,27 @@ namespace ProjectManagementApp
 
         private void ProjectEffort_Click(object sender, EventArgs e)
         {
-
+            ProjectEffortManagement.Instance.BringToFront();
         }
 
         private void ProjectProfileButton_Click(object sender, EventArgs e)
         {
-
+            ProjectProfileWindow.Instance.BringToFront();
         }
 
         private void ProjectSelectButton_Click(object sender, EventArgs e)
         {
-
+            // loads the project select page
+            if (!ProjectManagementSystem.Instance.Panel1Control.Controls.Contains(ProjectSelectWindow.Instance))
+            {
+                ProjectManagementSystem.Instance.Panel1Control.Controls.Add(ProjectSelectWindow.Instance);
+                ProjectSelectWindow.Instance.Dock = DockStyle.Fill;
+                ProjectSelectWindow.Instance.BringToFront();
+            }
+            else
+            {
+                ProjectSelectWindow.Instance.BringToFront();
+            }
         }
     }
 }
