@@ -49,18 +49,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Effort.cs" />
-    <Compile Include="InitialProjectSetup.cs">
-      <SubType>Form</SubType>
+    <Compile Include="InitialProjectSetupWindow.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="InitialProjectSetup.Designer.cs">
-      <DependentUpon>InitialProjectSetup.cs</DependentUpon>
+    <Compile Include="InitialProjectSetupWindow.Designer.cs">
+      <DependentUpon>InitialProjectSetupWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="ProjectSelectForm.cs">
+    <Compile Include="ProjectManagementSystem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProjectSelectForm.Designer.cs">
-      <DependentUpon>ProjectSelectForm.cs</DependentUpon>
+    <Compile Include="ProjectManagementSystem.Designer.cs">
+      <DependentUpon>ProjectManagementSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectSelectWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProjectSelectWindow.Designer.cs">
+      <DependentUpon>ProjectSelectWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="ProjectViewForm.cs">
       <SubType>Form</SubType>
@@ -69,11 +75,14 @@
       <DependentUpon>ProjectViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="InitialProjectSetup.resx">
-      <DependentUpon>InitialProjectSetup.cs</DependentUpon>
+    <EmbeddedResource Include="InitialProjectSetupWindow.resx">
+      <DependentUpon>InitialProjectSetupWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProjectSelectForm.resx">
-      <DependentUpon>ProjectSelectForm.cs</DependentUpon>
+    <EmbeddedResource Include="ProjectManagementSystem.resx">
+      <DependentUpon>ProjectManagementSystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectSelectWindow.resx">
+      <DependentUpon>ProjectSelectWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProjectViewForm.resx">
       <DependentUpon>ProjectViewForm.cs</DependentUpon>
