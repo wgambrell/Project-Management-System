@@ -26,6 +26,7 @@ namespace ProjectManagementApp
         public InitialProjectSetupWindow()
         {
             InitializeComponent();
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -91,7 +92,8 @@ namespace ProjectManagementApp
 
         private void CancelSetupButton_Click(object sender, EventArgs e)
         {
-
+            ProjectManagementSystem.Instance.Panel1Control.Controls.Add(ProjectSelectWindow.Instance);
+            ProjectSelectWindow.Instance.BringToFront();
         }
 
         private void InitialProjectSetupWindow_Load(object sender, EventArgs e)

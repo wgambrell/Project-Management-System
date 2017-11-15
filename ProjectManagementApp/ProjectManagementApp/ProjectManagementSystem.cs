@@ -28,28 +28,36 @@ namespace ProjectManagementApp
         public ProjectManagementSystem()
         {
             InitializeComponent();
-            panel1.Controls.Add(ProjectSelectWindow.Instance);
+            MainPanel.Controls.Add(ProjectSelectWindow.Instance);
         }
 
         public Panel Panel1Control
         {
             get
             {
-                return panel1;
+                return MainPanel;
             }
             set
             {
-                panel1 = value;
+                MainPanel = value;
             }
         }
        
+        public void PanelControl(UserControl uc)
+        {
 
+        }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
         private void ProjectManagementSystem_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TaskbarPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }

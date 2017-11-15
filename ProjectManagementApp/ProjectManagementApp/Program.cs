@@ -16,7 +16,7 @@ namespace ProjectManagementApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ProjectManagementSystem());
+            Application.Run(ProjectManagementSystem.Instance);
         }
     }
 }

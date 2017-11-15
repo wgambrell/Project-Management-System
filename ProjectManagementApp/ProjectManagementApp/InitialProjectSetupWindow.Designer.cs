@@ -233,7 +233,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Name = "InitialProjectSetupWindow";
-            this.Size = new System.Drawing.Size(1149, 512);
+            this.Size = new System.Drawing.Size(1200, 700);
             this.Load += new System.EventHandler(this.InitialProjectSetupWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -56,11 +56,23 @@
       <DependentUpon>InitialProjectSetupWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="ProjectEditWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProjectEditWindow.Designer.cs">
+      <DependentUpon>ProjectEditWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProjectManagementSystem.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ProjectManagementSystem.Designer.cs">
       <DependentUpon>ProjectManagementSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectProfileWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProjectProfileWindow.Designer.cs">
+      <DependentUpon>ProjectProfileWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="ProjectSelectWindow.cs">
       <SubType>UserControl</SubType>
@@ -68,24 +80,27 @@
     <Compile Include="ProjectSelectWindow.Designer.cs">
       <DependentUpon>ProjectSelectWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProjectViewForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProjectViewForm.Designer.cs">
-      <DependentUpon>ProjectViewForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Taskbar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Taskbar.Designer.cs">
+      <DependentUpon>Taskbar.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="InitialProjectSetupWindow.resx">
       <DependentUpon>InitialProjectSetupWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectEditWindow.resx">
+      <DependentUpon>ProjectEditWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProjectManagementSystem.resx">
       <DependentUpon>ProjectManagementSystem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProjectProfileWindow.resx">
+      <DependentUpon>ProjectProfileWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProjectSelectWindow.resx">
       <DependentUpon>ProjectSelectWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProjectViewForm.resx">
-      <DependentUpon>ProjectViewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -96,6 +111,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Taskbar.resx">
+      <DependentUpon>Taskbar.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.manifest">
       <SubType>Designer</SubType>
     </None>

@@ -67,7 +67,6 @@ namespace ProjectManagementApp
         private void CreNewProButton_Click(object sender, EventArgs e)
         {
             ProjectManagementSystem.Instance.Panel1Control.Controls.Add(InitialProjectSetupWindow.Instance);
-            InitialProjectSetupWindow.Instance.Dock = DockStyle.Fill;
             InitialProjectSetupWindow.Instance.BringToFront();
         }
 

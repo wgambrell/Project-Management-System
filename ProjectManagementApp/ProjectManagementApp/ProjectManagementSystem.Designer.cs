@@ -28,23 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.MainPanel = new System.Windows.Forms.Panel();
+            this.TaskbarPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // panel1
+            // MainPanel
             // 
-            this.panel1.Location = new System.Drawing.Point(3, 13);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1227, 719);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.MainPanel.Location = new System.Drawing.Point(0, 30);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(1200, 728);
+            this.MainPanel.TabIndex = 0;
+            this.MainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // TaskbarPanel
+            // 
+            this.TaskbarPanel.Location = new System.Drawing.Point(0, 0);
+            this.TaskbarPanel.Name = "TaskbarPanel";
+            this.TaskbarPanel.Size = new System.Drawing.Size(1200, 30);
+            this.TaskbarPanel.TabIndex = 1;
+            this.TaskbarPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TaskbarPanel_Paint);
             // 
             // ProjectManagementSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 761);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.TaskbarPanel);
+            this.Controls.Add(this.MainPanel);
             this.Name = "ProjectManagementSystem";
             this.Text = "ProjectManagementSystem";
             this.Load += new System.EventHandler(this.ProjectManagementSystem_Load);
@@ -54,6 +64,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel MainPanel;
+        private System.Windows.Forms.Panel TaskbarPanel;
     }
 }

@@ -93,7 +93,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SelProjList);
             this.Name = "ProjectSelectWindow";
-            this.Size = new System.Drawing.Size(1043, 648);
+            this.Size = new System.Drawing.Size(1200, 700);
             this.Load += new System.EventHandler(this.ProjectSelectWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
