@@ -51,6 +51,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.ProjectNameFieldRequiredLabel = new System.Windows.Forms.Label();
+            this.ManagerFieldRequiredLabel = new System.Windows.Forms.Label();
+            this.DescriptionFieldRequiredLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -165,7 +168,7 @@
             this.TeamMembersListBox.FormattingEnabled = true;
             this.TeamMembersListBox.Location = new System.Drawing.Point(281, 75);
             this.TeamMembersListBox.Name = "TeamMembersListBox";
-            this.TeamMembersListBox.Size = new System.Drawing.Size(120, 95);
+            this.TeamMembersListBox.Size = new System.Drawing.Size(454, 95);
             this.TeamMembersListBox.TabIndex = 29;
             this.TeamMembersListBox.SelectedIndexChanged += new System.EventHandler(this.TeamMembersListBox_SelectedIndexChanged);
             // 
@@ -220,11 +223,15 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Weekly",
+            "Daily"});
             this.comboBox1.Location = new System.Drawing.Point(26, 322);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(171, 21);
             this.comboBox1.TabIndex = 40;
             this.comboBox1.Text = "Weekly/Daily";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -262,7 +269,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(259, 199);
+            this.label10.Location = new System.Drawing.Point(93, 178);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(15, 20);
             this.label10.TabIndex = 44;
@@ -279,10 +286,43 @@
             this.label11.TabIndex = 45;
             this.label11.Text = "* Must be filled in to continue";
             // 
+            // ProjectNameFieldRequiredLabel
+            // 
+            this.ProjectNameFieldRequiredLabel.AutoSize = true;
+            this.ProjectNameFieldRequiredLabel.Location = new System.Drawing.Point(153, 78);
+            this.ProjectNameFieldRequiredLabel.Name = "ProjectNameFieldRequiredLabel";
+            this.ProjectNameFieldRequiredLabel.Size = new System.Drawing.Size(85, 13);
+            this.ProjectNameFieldRequiredLabel.TabIndex = 46;
+            this.ProjectNameFieldRequiredLabel.Text = "Field is Required";
+            this.ProjectNameFieldRequiredLabel.Visible = false;
+            // 
+            // ManagerFieldRequiredLabel
+            // 
+            this.ManagerFieldRequiredLabel.AutoSize = true;
+            this.ManagerFieldRequiredLabel.Location = new System.Drawing.Point(148, 127);
+            this.ManagerFieldRequiredLabel.Name = "ManagerFieldRequiredLabel";
+            this.ManagerFieldRequiredLabel.Size = new System.Drawing.Size(85, 13);
+            this.ManagerFieldRequiredLabel.TabIndex = 47;
+            this.ManagerFieldRequiredLabel.Text = "Field is Required";
+            this.ManagerFieldRequiredLabel.Visible = false;
+            // 
+            // DescriptionFieldRequiredLabel
+            // 
+            this.DescriptionFieldRequiredLabel.AutoSize = true;
+            this.DescriptionFieldRequiredLabel.Location = new System.Drawing.Point(148, 178);
+            this.DescriptionFieldRequiredLabel.Name = "DescriptionFieldRequiredLabel";
+            this.DescriptionFieldRequiredLabel.Size = new System.Drawing.Size(85, 13);
+            this.DescriptionFieldRequiredLabel.TabIndex = 48;
+            this.DescriptionFieldRequiredLabel.Text = "Field is Required";
+            this.DescriptionFieldRequiredLabel.Visible = false;
+            // 
             // InitialProjectSetupWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.DescriptionFieldRequiredLabel);
+            this.Controls.Add(this.ManagerFieldRequiredLabel);
+            this.Controls.Add(this.ProjectNameFieldRequiredLabel);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -339,5 +379,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label ProjectNameFieldRequiredLabel;
+        private System.Windows.Forms.Label ManagerFieldRequiredLabel;
+        private System.Windows.Forms.Label DescriptionFieldRequiredLabel;
     }
 }

@@ -56,6 +56,7 @@
       <DependentUpon>InitialProjectSetupWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Project.cs" />
     <Compile Include="ProjectEditWindow.cs">
       <SubType>UserControl</SubType>
     </Compile>
