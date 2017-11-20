@@ -27,6 +27,11 @@ namespace ProjectManagementApp
                 return _instance;
             }
         }
+        public Label projectTitleControls
+        {
+            get { return ProjectName; }
+            set { ProjectName = value; }
+        }
 
         private void ProjectName_Click(object sender, EventArgs e)
         {

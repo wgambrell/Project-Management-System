@@ -27,7 +27,18 @@ namespace ProjectManagementApp
                 return _instance;
             }
         }
-      
+        public TextBox projecManagerControls
+        {
+            get { return ProjectLeaderTextBox; }
+            set { ProjectLeaderTextBox = value; }
+        }
+
+        public RichTextBox projecDescriptionControls
+        {
+            get { return ProjectDescriptionTextBox; }
+            set { ProjectDescriptionTextBox = value; }
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {

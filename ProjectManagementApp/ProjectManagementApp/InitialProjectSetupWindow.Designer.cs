@@ -30,7 +30,7 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.AddRiskTextBox = new System.Windows.Forms.TextBox();
-            this.TeamMemberNewInputBox = new System.Windows.Forms.TextBox();
+            this.AddMemberbox = new System.Windows.Forms.TextBox();
             this.ProjectManagerTextBox = new System.Windows.Forms.TextBox();
             this.AddRiskButton = new System.Windows.Forms.Button();
             this.CancelSetupButton = new System.Windows.Forms.Button();
@@ -54,6 +54,10 @@
             this.ProjectNameFieldRequiredLabel = new System.Windows.Forms.Label();
             this.ManagerFieldRequiredLabel = new System.Windows.Forms.Label();
             this.DescriptionFieldRequiredLabel = new System.Windows.Forms.Label();
+            this.TeamRemoveButton = new System.Windows.Forms.Button();
+            this.RisksRemoveButton = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -67,19 +71,20 @@
             // 
             // AddRiskTextBox
             // 
+            this.AddRiskTextBox.AccessibleName = "RiskInput";
             this.AddRiskTextBox.Location = new System.Drawing.Point(281, 334);
             this.AddRiskTextBox.Name = "AddRiskTextBox";
-            this.AddRiskTextBox.Size = new System.Drawing.Size(373, 20);
+            this.AddRiskTextBox.Size = new System.Drawing.Size(230, 20);
             this.AddRiskTextBox.TabIndex = 39;
             this.AddRiskTextBox.TextChanged += new System.EventHandler(this.AddRiskTextBox_TextChanged);
             // 
-            // TeamMemberNewInputBox
+            // AddMemberbox
             // 
-            this.TeamMemberNewInputBox.Location = new System.Drawing.Point(281, 177);
-            this.TeamMemberNewInputBox.Name = "TeamMemberNewInputBox";
-            this.TeamMemberNewInputBox.Size = new System.Drawing.Size(230, 20);
-            this.TeamMemberNewInputBox.TabIndex = 38;
-            this.TeamMemberNewInputBox.TextChanged += new System.EventHandler(this.TeamMemberNewInputBox_TextChanged);
+            this.AddMemberbox.Location = new System.Drawing.Point(281, 177);
+            this.AddMemberbox.Name = "AddMemberbox";
+            this.AddMemberbox.Size = new System.Drawing.Size(230, 20);
+            this.AddMemberbox.TabIndex = 38;
+            this.AddMemberbox.TextChanged += new System.EventHandler(this.TeamMemberNewInputBox_TextChanged);
             // 
             // ProjectManagerTextBox
             // 
@@ -92,7 +97,7 @@
             // AddRiskButton
             // 
             this.AddRiskButton.AccessibleName = "AddRiskButton";
-            this.AddRiskButton.Location = new System.Drawing.Point(660, 333);
+            this.AddRiskButton.Location = new System.Drawing.Point(517, 334);
             this.AddRiskButton.Name = "AddRiskButton";
             this.AddRiskButton.Size = new System.Drawing.Size(75, 23);
             this.AddRiskButton.TabIndex = 36;
@@ -103,7 +108,7 @@
             // CancelSetupButton
             // 
             this.CancelSetupButton.AccessibleName = "CancelInitialSetupButton";
-            this.CancelSetupButton.Location = new System.Drawing.Point(616, 361);
+            this.CancelSetupButton.Location = new System.Drawing.Point(616, 376);
             this.CancelSetupButton.Name = "CancelSetupButton";
             this.CancelSetupButton.Size = new System.Drawing.Size(119, 48);
             this.CancelSetupButton.TabIndex = 35;
@@ -114,7 +119,7 @@
             // FinishSetupButton
             // 
             this.FinishSetupButton.AccessibleName = "EndSetupButton";
-            this.FinishSetupButton.Location = new System.Drawing.Point(477, 361);
+            this.FinishSetupButton.Location = new System.Drawing.Point(482, 376);
             this.FinishSetupButton.Name = "FinishSetupButton";
             this.FinishSetupButton.Size = new System.Drawing.Size(100, 48);
             this.FinishSetupButton.TabIndex = 34;
@@ -280,7 +285,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(22, 416);
+            this.label11.Location = new System.Drawing.Point(22, 389);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(211, 20);
             this.label11.TabIndex = 45;
@@ -316,10 +321,61 @@
             this.DescriptionFieldRequiredLabel.Text = "Field is Required";
             this.DescriptionFieldRequiredLabel.Visible = false;
             // 
+            // TeamRemoveButton
+            // 
+            this.TeamRemoveButton.AccessibleName = "AddMemberButton";
+            this.TeamRemoveButton.Enabled = false;
+            this.TeamRemoveButton.Location = new System.Drawing.Point(616, 173);
+            this.TeamRemoveButton.Name = "TeamRemoveButton";
+            this.TeamRemoveButton.Size = new System.Drawing.Size(119, 23);
+            this.TeamRemoveButton.TabIndex = 49;
+            this.TeamRemoveButton.Text = "Remove Selected";
+            this.TeamRemoveButton.UseVisualStyleBackColor = true;
+            this.TeamRemoveButton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // RisksRemoveButton
+            // 
+            this.RisksRemoveButton.AccessibleName = "AddMemberButton";
+            this.RisksRemoveButton.Enabled = false;
+            this.RisksRemoveButton.Location = new System.Drawing.Point(616, 332);
+            this.RisksRemoveButton.Name = "RisksRemoveButton";
+            this.RisksRemoveButton.Size = new System.Drawing.Size(119, 23);
+            this.RisksRemoveButton.TabIndex = 50;
+            this.RisksRemoveButton.Text = "Remove Selected";
+            this.RisksRemoveButton.UseVisualStyleBackColor = true;
+            this.RisksRemoveButton.Click += new System.EventHandler(this.RisksRemoveButton_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.Location = new System.Drawing.Point(203, 323);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(21, 20);
+            this.label12.TabIndex = 51;
+            this.label12.Text = "**";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label13.ForeColor = System.Drawing.Color.Red;
+            this.label13.Location = new System.Drawing.Point(22, 423);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(285, 20);
+            this.label13.TabIndex = 52;
+            this.label13.Text = "** Cannot be changed after submission";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
+            // 
             // InitialProjectSetupWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.RisksRemoveButton);
+            this.Controls.Add(this.TeamRemoveButton);
             this.Controls.Add(this.DescriptionFieldRequiredLabel);
             this.Controls.Add(this.ManagerFieldRequiredLabel);
             this.Controls.Add(this.ProjectNameFieldRequiredLabel);
@@ -330,7 +386,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.AddRiskTextBox);
-            this.Controls.Add(this.TeamMemberNewInputBox);
+            this.Controls.Add(this.AddMemberbox);
             this.Controls.Add(this.ProjectManagerTextBox);
             this.Controls.Add(this.AddRiskButton);
             this.Controls.Add(this.CancelSetupButton);
@@ -358,7 +414,7 @@
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox AddRiskTextBox;
-        private System.Windows.Forms.TextBox TeamMemberNewInputBox;
+        private System.Windows.Forms.TextBox AddMemberbox;
         private System.Windows.Forms.TextBox ProjectManagerTextBox;
         private System.Windows.Forms.Button AddRiskButton;
         private System.Windows.Forms.Button CancelSetupButton;
@@ -382,5 +438,9 @@
         private System.Windows.Forms.Label ProjectNameFieldRequiredLabel;
         private System.Windows.Forms.Label ManagerFieldRequiredLabel;
         private System.Windows.Forms.Label DescriptionFieldRequiredLabel;
+        private System.Windows.Forms.Button TeamRemoveButton;
+        private System.Windows.Forms.Button RisksRemoveButton;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }

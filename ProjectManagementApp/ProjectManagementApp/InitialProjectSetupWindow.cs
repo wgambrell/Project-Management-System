@@ -42,7 +42,7 @@ namespace ProjectManagementApp
 
         private void label3_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void ProjectManagerTextBox_TextChanged(object sender, EventArgs e)
@@ -57,7 +57,7 @@ namespace ProjectManagementApp
 
         private void TeamMembersListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            TeamRemoveButton.Enabled = true;
         }
 
         private void TeamMemberNewInputBox_TextChanged(object sender, EventArgs e)
@@ -67,12 +67,14 @@ namespace ProjectManagementApp
 
         private void AddMemberButton_Click(object sender, EventArgs e)
         {
-
+            if (AddMemberbox.Text != "")
+                TeamMembersListBox.Items.Add(AddMemberbox.Text);
+            AddMemberbox.Text = "";
         }
 
         private void RiskListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            RisksRemoveButton.Enabled = true;
         }
 
         private void AddRiskTextBox_TextChanged(object sender, EventArgs e)
@@ -82,8 +84,9 @@ namespace ProjectManagementApp
 
         private void AddRiskButton_Click(object sender, EventArgs e)
         {
-            if (TeamMemberNewInputBox.Text != "")
-                TeamMembersListBox.Items.Add(TeamMemberNewInputBox.Text);
+            if (AddRiskTextBox.Text != "")
+                RiskListBox.Items.Add(AddRiskTextBox.Text);
+            AddRiskTextBox.Text = "";
         }
 
         private void FinishSetupButton_Click(object sender, EventArgs e)
@@ -102,27 +105,12 @@ namespace ProjectManagementApp
                 String path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System" + "\\" + ProjectNameTextBox.Text + ".txt";
                 if (!File.Exists(path))
                 {
-                    File.Create(path);
-                    TextWriter tw = new StreamWriter(path);
-                    String s = "";
-                    tw.WriteLine(ProjectNameTextBox.Text);
-                    tw.WriteLine(ProjectManagerTextBox.Text);
-                    tw.WriteLine(DescriptionTextBox.Text);
-                    foreach(var item in TeamMembersListBox.Items)
-                    {
-                        s += item.ToString() + " ";
-                    }
-                    tw.WriteLine(s);
-                    s = "";
-                    foreach (var item in RiskListBox.Items)
-                    {
-                        s += item.ToString() + " ";
-                    }
-                    tw.WriteLine(s);
-                    if (comboBox1.SelectedItem.ToString() == "Weekly")
-                        tw.WriteLine("7");
-                    if (comboBox1.SelectedItem.ToString() == "Daily")
-                        tw.WriteLine("1");
+                    // create files and save data
+                    SaveFile(path);
+
+                    // set mandatory variables on profile
+                    Project.Instance.SetInitialVariables(ProjectNameTextBox.Text, ProjectManagerTextBox.Text, DescriptionTextBox.Text, comboBox1.SelectedItem.ToString());
+
                     //Creates taskbar
                     if (!ProjectManagementSystem.Instance.PanelBarControls.Controls.Contains(Taskbar.Instance))
                     {
@@ -150,6 +138,9 @@ namespace ProjectManagementApp
                     ProjectEffortManagement.Instance.Dock = DockStyle.Fill;
 
                     ProjectManagementSystem.Instance.Panel1Control.Controls.Remove(InitialProjectSetupWindow.Instance);
+
+                    //Set ProjectProfileWIndow and Taskbar text
+                    SetProjectProfilePage();
                 }
                 else if (File.Exists(path))
                 {
@@ -172,6 +163,57 @@ namespace ProjectManagementApp
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+        private void SetProjectProfilePage()
+        {
+            Taskbar.Instance.projectTitleControls.Text = Project.Instance.projectNameControls;
+            ProjectProfileWindow.Instance.projecManagerControls.Text = Project.Instance.managerNameControls;
+            ProjectProfileWindow.Instance.projecDescriptionControls.Text = Project.Instance.projectDescriptionControls;
+        }
+
+        private void SaveFile(String path)
+        {
+            File.Create(path).Close();
+            using (TextWriter tw = new StreamWriter(path, true))
+            {
+
+                String s = "";
+                tw.WriteLine(ProjectNameTextBox.Text);
+                tw.WriteLine(ProjectManagerTextBox.Text);
+                tw.WriteLine(DescriptionTextBox.Text);
+                foreach (var item in TeamMembersListBox.Items)
+                {
+                    s += item.ToString() + " *@* ";
+                }
+                tw.WriteLine(s);
+                s = "";
+                foreach (var item in RiskListBox.Items)
+                {
+                    s += item.ToString() + " *@* ";
+                }
+                tw.WriteLine(s);
+                if (comboBox1.SelectedItem.ToString() == "Weekly")
+                    tw.WriteLine("7");
+                if (comboBox1.SelectedItem.ToString() == "Daily")
+                    tw.WriteLine("1");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TeamMembersListBox.Items.Remove(TeamMembersListBox.SelectedItem);
+            TeamRemoveButton.Enabled = false;
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RisksRemoveButton_Click(object sender, EventArgs e)
+        {
+            RiskListBox.Items.Remove(RiskListBox.SelectedItem);
+            RisksRemoveButton.Enabled = false;
         }
     }
 }

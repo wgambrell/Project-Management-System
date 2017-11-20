@@ -21,11 +21,24 @@ namespace ProjectManagementApp
         }
         private String projectName;
         private String managerName;
+        private int daytime;
         private ArrayList projectMembers = new ArrayList();
         private String projectDescription;
         private ArrayList risks = new ArrayList();
         private ArrayList funcReq = new ArrayList();
         private ArrayList nonFuncReq = new ArrayList();
+
+        public void SetInitialVariables(String prjname, String mgrname, String prjDescription, String timeday)
+        {
+            projectName = prjname;
+            managerName = mgrname;
+            projectDescription = prjDescription;
+            if (timeday == "Weekly")
+                daytime = 7;
+            else
+                daytime = 1;
+
+        }
 
         public String projectNameControls
         {
@@ -41,6 +54,11 @@ namespace ProjectManagementApp
         {
             get { return projectDescription; }
             set { projectDescription = value; }
+        }
+        public int daytimeControls
+        {
+            get { return daytime; }
+            set { daytime = value; }
         }
         public void AddProjectMember(String s)
         {
