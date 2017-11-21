@@ -132,5 +132,10 @@ namespace ProjectManagementApp
                 ProjectEditWindow.Instance.RiskListControls.Items.Add(item);
             }
         }
+
+        private void ProjectProfileWindow_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

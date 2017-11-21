@@ -185,6 +185,7 @@
             this.Controls.Add(this.EditProfileButton);
             this.Name = "ProjectProfileWindow";
             this.Size = new System.Drawing.Size(1200, 700);
+            this.Load += new System.EventHandler(this.ProjectProfileWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

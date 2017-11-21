@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,7 +71,44 @@ namespace ProjectManagementApp
             }
         }
 
-
+        public void RewriteFile()   //Rebuilds file with new shtuff
+        {
+            String path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System" + "\\" + projectName + ".txt";
+            File.WriteAllText(path, null);
+            using (TextWriter tw = new StreamWriter(path, true))
+            {
+                String s = "";
+                tw.WriteLine(projectName);
+                tw.WriteLine(managerName);
+                tw.WriteLine(projectDescription);
+                foreach (var item in projectMembers)
+                {
+                    s += item.ToString() + "*@*";
+                }
+                tw.WriteLine(s);
+                s = "";
+                foreach (var item in risks)
+                {
+                    s += item.ToString() + "*@*";
+                }
+                tw.WriteLine(s);
+                s = "";
+                tw.WriteLine(daytime);
+                foreach (var item in funcReq)
+                {
+                    s += item.ToString() + "*@*";
+                }
+                tw.WriteLine(s);
+                s = "";
+                foreach(var item in nonFuncReq)
+                {
+                    s += item.ToString() + "*@*";
+                }
+                tw.WriteLine(s);
+                s = "";
+                tw.Close();
+            }
+        }
 
         public void SetOptionalVariables(ListBox arr1, ListBox arr2)
         {

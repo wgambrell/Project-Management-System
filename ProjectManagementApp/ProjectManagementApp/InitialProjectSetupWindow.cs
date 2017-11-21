@@ -217,7 +217,9 @@ namespace ProjectManagementApp
                     tw.WriteLine("7");
                 if (comboBox1.SelectedItem.ToString() == "Daily")
                     tw.WriteLine("1");
+                tw.Close();
             }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -88,11 +88,10 @@ namespace ProjectManagementApp
 
         }
 
-        private void SaveProfileButton_Click(object sender, EventArgs e)
+        private void SaveProfileButton_Click(object sender, EventArgs e)    //Sendds all data in text boxes to Project.cs class, moves to project profile window
         {
             Project.Instance.managerNameControls = ProjectLeaderTextBox.Text;
             Project.Instance.projectDescriptionControls = ProjectDescriptionTextBox.Text;
-
             Project.Instance.projectMembersControl.Clear();
             foreach (var item in TeamMemberListBox1.Items)
             {
@@ -118,7 +117,8 @@ namespace ProjectManagementApp
             }
             Project.Instance.setProfilePage();
 
-            ProjectProfileWindow.Instance.BringToFront();
+            Project.Instance.RewriteFile(); //Rewrites the file, passing the buck to the Project.cs file for a sec
+            ProjectProfileWindow.Instance.BringToFront();   //Switches back to project profile window
         }
 
         private void AddFuncReqButton_Click(object sender, EventArgs e)

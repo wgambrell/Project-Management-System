@@ -16,6 +16,7 @@ namespace ProjectManagementApp
         int selProjListIndex = 0;   //Index of currently selected file in the Project Selection window - to easily delete the currently selected project and to access the currently selected project. 
         String[] projects;          //List of Project file names, without file paths - to more easily read the Project Selection List
         String[] projectSaves;      //Lit of Project file names, with file paths - to more easily locate and delete/access files in the Project Selection list
+        String pathfiles;
         private static ProjectSelectWindow _instance;
 
         public static ProjectSelectWindow Instance
@@ -30,6 +31,7 @@ namespace ProjectManagementApp
         public ProjectSelectWindow()
         {
             InitializeComponent();
+            pathfiles = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System";
             Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System");
             projects = Directory.GetFiles(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System");
             projectSaves = Directory.GetFiles(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System");
@@ -61,7 +63,43 @@ namespace ProjectManagementApp
 
         private void SelProjButton_Click(object sender, EventArgs e)
         {
+            // create files and save data
+            //SaveFile(path);
 
+            // set mandatory variables on profile
+            //Project.Instance.SetInitialVariables(ProjectNameTextBox.Text, ProjectManagerTextBox.Text, DescriptionTextBox.Text, comboBox1.SelectedItem.ToString());
+            //Project.Instance.SetOptionalVariables(TeamMembersListBox, RiskListBox);
+
+            //Creates taskbar
+            if (!ProjectManagementSystem.Instance.PanelBarControls.Controls.Contains(Taskbar.Instance))
+            {
+                ProjectManagementSystem.Instance.PanelBarControls.Controls.Add(Taskbar.Instance);
+                Taskbar.Instance.Dock = DockStyle.Fill;
+                Taskbar.Instance.BringToFront();
+            }
+            else
+            {
+                Taskbar.Instance.BringToFront();
+            }
+            //Creates Project Profile window and sets it to open
+            if (!ProjectManagementSystem.Instance.Panel1Control.Controls.Contains(ProjectProfileWindow.Instance))
+            {
+                ProjectManagementSystem.Instance.Panel1Control.Controls.Add(ProjectProfileWindow.Instance);
+                ProjectProfileWindow.Instance.Dock = DockStyle.Fill;
+                ProjectProfileWindow.Instance.BringToFront();
+            }
+            else
+            {
+                ProjectProfileWindow.Instance.BringToFront();
+            }
+            //Create Project Effort page
+            ProjectManagementSystem.Instance.Panel1Control.Controls.Add(ProjectEffortManagement.Instance);
+            ProjectEffortManagement.Instance.Dock = DockStyle.Fill;
+
+            ProjectManagementSystem.Instance.Panel1Control.Controls.Remove(InitialProjectSetupWindow.Instance);
+
+            //Set ProjectProfileWIndow and Taskbar text
+            SetProjectProfilePage();
         }
 
         private void CreNewProButton_Click(object sender, EventArgs e)
@@ -74,7 +112,7 @@ namespace ProjectManagementApp
         private void DelSelProjButton_Click(object sender, EventArgs e)
         {
             String s = SelProjList.SelectedItem.ToString();
-            File.Delete(s);
+            File.Delete(pathfiles + " \\" + s);
             SelProjList.Items.Remove(SelProjList.SelectedItem);
         }
     }
