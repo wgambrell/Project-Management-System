@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ProjectManagementApp
 {
@@ -39,7 +40,70 @@ namespace ProjectManagementApp
                 daytime = 1;
 
         }
+        public void setProfilePage()
+        {
+            ProjectProfileWindow.Instance.projecManagerControls.Text = managerName;
+            ProjectProfileWindow.Instance.projecDescriptionControls.Text = projectDescription;
 
+            ProjectProfileWindow.Instance.teamMemberListControls.Items.Clear();
+            foreach (var item in projectMembers)
+            {
+                ProjectProfileWindow.Instance.teamMemberListControls.Items.Add(item);
+            }
+
+            ProjectProfileWindow.Instance.RiskListControls.Items.Clear();
+            foreach (var item in risks)
+            {
+                ProjectProfileWindow.Instance.RiskListControls.Items.Add(item);
+            }
+
+            ProjectProfileWindow.Instance.funcRequirements.Items.Clear();
+            foreach (var item in funcReq)
+            {
+                ProjectProfileWindow.Instance.funcRequirements.Items.Add(item);
+            }
+
+            ProjectProfileWindow.Instance.NonfuncRequirements.Items.Clear();
+            foreach (var item in nonFuncReq)
+            {
+                ProjectProfileWindow.Instance.NonfuncRequirements.Items.Add(item);
+            }
+        }
+
+
+
+        public void SetOptionalVariables(ListBox arr1, ListBox arr2)
+        {
+            foreach (var item in arr1.Items)
+            {
+                projectMembers.Add(item);
+            }
+
+            foreach (var item in arr2.Items)
+            {
+                risks.Add(item);
+            }
+        }
+        public ArrayList projectMembersControl
+        {
+            get { return projectMembers; }
+            set { projectMembers = value; }
+        }
+        public ArrayList projectRiskControl
+        {
+            get { return risks; }
+            set { risks = value; }
+        }
+        public ArrayList FuncReqControl
+        {
+            get { return funcReq; }
+            set { funcReq = value; }
+        }
+        public ArrayList NonFuncReqControl
+        {
+            get { return nonFuncReq; }
+            set { nonFuncReq = value; }
+        }
         public String projectNameControls
         {
             get { return projectName;  }

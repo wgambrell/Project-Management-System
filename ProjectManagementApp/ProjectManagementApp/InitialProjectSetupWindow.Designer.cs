@@ -58,6 +58,7 @@
             this.RisksRemoveButton = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.WeeklyLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -368,10 +369,21 @@
             this.label13.Text = "** Cannot be changed after submission";
             this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
+            // WeeklyLabel
+            // 
+            this.WeeklyLabel.AutoSize = true;
+            this.WeeklyLabel.Location = new System.Drawing.Point(148, 346);
+            this.WeeklyLabel.Name = "WeeklyLabel";
+            this.WeeklyLabel.Size = new System.Drawing.Size(85, 13);
+            this.WeeklyLabel.TabIndex = 53;
+            this.WeeklyLabel.Text = "Field is Required";
+            this.WeeklyLabel.Visible = false;
+            // 
             // InitialProjectSetupWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.WeeklyLabel);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.RisksRemoveButton);
@@ -442,5 +454,6 @@
         private System.Windows.Forms.Button RisksRemoveButton;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label WeeklyLabel;
     }
 }

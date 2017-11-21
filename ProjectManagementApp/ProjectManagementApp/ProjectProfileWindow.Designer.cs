@@ -64,8 +64,10 @@
             // 
             // ProjectLeaderTextBox
             // 
+            this.ProjectLeaderTextBox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.ProjectLeaderTextBox.Location = new System.Drawing.Point(39, 46);
             this.ProjectLeaderTextBox.Name = "ProjectLeaderTextBox";
+            this.ProjectLeaderTextBox.ReadOnly = true;
             this.ProjectLeaderTextBox.Size = new System.Drawing.Size(364, 20);
             this.ProjectLeaderTextBox.TabIndex = 3;
             this.ProjectLeaderTextBox.Text = "ProjectLeader";
@@ -83,8 +85,10 @@
             // 
             // ProjectDescriptionTextBox
             // 
+            this.ProjectDescriptionTextBox.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ProjectDescriptionTextBox.Location = new System.Drawing.Point(39, 114);
             this.ProjectDescriptionTextBox.Name = "ProjectDescriptionTextBox";
+            this.ProjectDescriptionTextBox.ReadOnly = true;
             this.ProjectDescriptionTextBox.Size = new System.Drawing.Size(364, 96);
             this.ProjectDescriptionTextBox.TabIndex = 6;
             this.ProjectDescriptionTextBox.Text = "ProjectDescription";

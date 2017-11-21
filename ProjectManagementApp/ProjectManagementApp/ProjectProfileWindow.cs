@@ -27,6 +27,28 @@ namespace ProjectManagementApp
                 return _instance;
             }
         }
+        public ListBox teamMemberListControls
+        {
+            get { return TeamMemberListBox; }
+            set { TeamMemberListBox = value; }
+        }
+
+        public ListBox RiskListControls
+        {
+            get { return RiskListBox; }
+            set { RiskListBox = value; }
+        }
+        public ListBox funcRequirements
+        {
+            get { return FunctionalRequirementsListBox; }
+            set { FunctionalRequirementsListBox = value; }
+        }
+
+        public ListBox NonfuncRequirements
+        {
+            get { return NonfunctionalRequirementsListBox; }
+            set { NonfunctionalRequirementsListBox = value; }
+        }
         public TextBox projecManagerControls
         {
             get { return ProjectLeaderTextBox; }
@@ -38,7 +60,6 @@ namespace ProjectManagementApp
             get { return ProjectDescriptionTextBox; }
             set { ProjectDescriptionTextBox = value; }
         }
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -91,6 +112,24 @@ namespace ProjectManagementApp
             else
             {
                 ProjectEditWindow.Instance.BringToFront();
+            }
+
+            // Sets values on edit page
+            ProjectEditWindow.Instance.projecManagerControls.Text = ProjectLeaderTextBox.Text;
+            ProjectEditWindow.Instance.projecDescriptionControls.Text = ProjectDescriptionTextBox.Text;
+
+            // Sets valuse for lists
+            ProjectEditWindow.Instance.teamMemberListControls.Items.Clear();
+            ProjectEditWindow.Instance.RiskListControls.Items.Clear();
+
+            foreach (var item in Project.Instance.projectMembersControl)
+            {
+                ProjectEditWindow.Instance.teamMemberListControls.Items.Add(item);
+            }
+
+            foreach (var item in Project.Instance.projectRiskControl)
+            {
+                ProjectEditWindow.Instance.RiskListControls.Items.Add(item);
             }
         }
     }

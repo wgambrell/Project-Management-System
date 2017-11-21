@@ -91,7 +91,7 @@ namespace ProjectManagementApp
 
         private void FinishSetupButton_Click(object sender, EventArgs e)
         {
-            if (ProjectNameTextBox.Text == "" || ProjectManagerTextBox.Text == "" || DescriptionTextBox.Text == "")
+            if (ProjectNameTextBox.Text == "" || ProjectManagerTextBox.Text == "" || DescriptionTextBox.Text == "" || comboBox1.SelectedItem == null)
             {
                 if(ProjectNameTextBox.Text == "")
                     ProjectNameFieldRequiredLabel.Visible = true;
@@ -99,6 +99,8 @@ namespace ProjectManagementApp
                     ManagerFieldRequiredLabel.Visible = true;
                 if (DescriptionTextBox.Text == "")
                     DescriptionFieldRequiredLabel.Visible = true;
+                if (comboBox1.SelectedItem == null)
+                    WeeklyLabel.Visible = true;
             }
             else
             {
@@ -110,6 +112,7 @@ namespace ProjectManagementApp
 
                     // set mandatory variables on profile
                     Project.Instance.SetInitialVariables(ProjectNameTextBox.Text, ProjectManagerTextBox.Text, DescriptionTextBox.Text, comboBox1.SelectedItem.ToString());
+                    Project.Instance.SetOptionalVariables(TeamMembersListBox, RiskListBox);
 
                     //Creates taskbar
                     if (!ProjectManagementSystem.Instance.PanelBarControls.Controls.Contains(Taskbar.Instance))
@@ -153,6 +156,12 @@ namespace ProjectManagementApp
         {
             ProjectManagementSystem.Instance.Panel1Control.Controls.Add(ProjectSelectWindow.Instance);
             ProjectSelectWindow.Instance.BringToFront();
+            InitialProjectSetupWindow.Instance.Refresh();
+            ProjectManagerTextBox.Text = "";
+            ProjectNameTextBox.Text = "";
+            DescriptionTextBox.Text = "";
+            TeamMembersListBox.Items.Clear();
+            RiskListBox.Items.Clear();
         }
 
         private void InitialProjectSetupWindow_Load(object sender, EventArgs e)
@@ -169,7 +178,19 @@ namespace ProjectManagementApp
             Taskbar.Instance.projectTitleControls.Text = Project.Instance.projectNameControls;
             ProjectProfileWindow.Instance.projecManagerControls.Text = Project.Instance.managerNameControls;
             ProjectProfileWindow.Instance.projecDescriptionControls.Text = Project.Instance.projectDescriptionControls;
+             //adds Members list to page
+            foreach (var item in Project.Instance.projectMembersControl)
+            {
+                ProjectProfileWindow.Instance.teamMemberListControls.Items.Add(item);
+            }
+            //adds Risks list to page
+            foreach (var item in Project.Instance.projectRiskControl)
+            {
+                ProjectProfileWindow.Instance.RiskListControls.Items.Add(item);
+            }
+
         }
+
 
         private void SaveFile(String path)
         {
