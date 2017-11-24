@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,8 @@ namespace ProjectManagementApp
         private ArrayList risks = new ArrayList();
         private ArrayList funcReq = new ArrayList();
         private ArrayList nonFuncReq = new ArrayList();
+        private List<Effort> effortList = new List<Effort>();
+        
 
         public void SetInitialVariables(String prjname, String mgrname, String prjDescription, String timeday)
         {
@@ -141,6 +144,11 @@ namespace ProjectManagementApp
         {
             get { return nonFuncReq; }
             set { nonFuncReq = value; }
+        }
+        public List<Effort> EffortControl
+        {
+            get { return effortList; }
+            set { effortList = value; }
         }
         public String projectNameControls
         {

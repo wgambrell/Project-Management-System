@@ -99,7 +99,7 @@ namespace ProjectManagementApp
             ProjectManagementSystem.Instance.Panel1Control.Controls.Remove(InitialProjectSetupWindow.Instance);
 
             //Set ProjectProfileWIndow and Taskbar text
-            SetProjectProfilePage();
+            //SetProjectProfilePage();
         }
 
         private void CreNewProButton_Click(object sender, EventArgs e)

@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,6 +63,12 @@
     </Compile>
     <Compile Include="ProjectEditWindow.Designer.cs">
       <DependentUpon>ProjectEditWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectEffortAddPopup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProjectEffortAddPopup.Designer.cs">
+      <DependentUpon>ProjectEffortAddPopup.cs</DependentUpon>
     </Compile>
     <Compile Include="ProjectEffortManagement.cs">
       <SubType>UserControl</SubType>
@@ -99,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProjectEditWindow.resx">
       <DependentUpon>ProjectEditWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectEffortAddPopup.resx">
+      <DependentUpon>ProjectEffortAddPopup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProjectEffortManagement.resx">
       <DependentUpon>ProjectEffortManagement.cs</DependentUpon>

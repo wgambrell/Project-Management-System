@@ -10,13 +10,23 @@ namespace ProjectManagementApp
     {
         private int hoursExpended;
         private DateTime timeStamps;
-        private string category;
+        private int[] category = new int[5];
 
-        public Effort(string category, int hoursExpended)
+        public Effort(int management, int requirements, int design, int implementation, int testing, DateTime stamp)
         {
-            this.category = category;
-            this.hoursExpended = hoursExpended;
-            this.timeStamps = DateTime.Now;
+            category[0] = management;
+            category[1] = requirements;
+            category[2] = design;
+            category[3] = implementation;
+            category[4] = testing;
+            //this.hoursExpended = hoursExpended;
+            timeStamps = stamp.Date;
+        }
+
+        public DateTime timeControl
+        {
+            get { return timeStamps; }
+            set { timeStamps = value; }
         }
     }
 }

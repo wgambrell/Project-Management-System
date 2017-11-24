@@ -41,3 +41,4 @@ C:\Users\jhbla\Documents\GitHub\Project-Management-System\ProjectManagementApp\P
 C:\Users\jhbla\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.ProjectEffortManagement.resources
 C:\Users\jhbla\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.ProjectProfileWindow.resources
 C:\Users\jhbla\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.Taskbar.resources
+C:\Users\tyler_000\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.ProjectEffortAddPopup.resources
