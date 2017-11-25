@@ -28,5 +28,10 @@ namespace ProjectManagementApp
             get { return timeStamps; }
             set { timeStamps = value; }
         }
+         public int[] getcategory
+        {
+            get { return category; }
+            set { category = value; }
+        }
     }
 }

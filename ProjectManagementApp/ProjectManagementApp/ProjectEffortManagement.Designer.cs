@@ -28,14 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint5 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             this.button1 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.TotalHourslb = new System.Windows.Forms.Label();
+            this.CurrentDatalabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.PanelContainer = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.PieChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.reportType = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.PieChart)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -48,46 +59,41 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(165, 55);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(395, 295);
-            this.panel2.TabIndex = 3;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(162, 34);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(151, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 13);
+            this.label1.Size = new System.Drawing.Size(95, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = "Total Hours:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label2
+            // TotalHourslb
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(233, 34);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "variable goes here";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.TotalHourslb.AutoSize = true;
+            this.TotalHourslb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalHourslb.Location = new System.Drawing.Point(252, 27);
+            this.TotalHourslb.Name = "TotalHourslb";
+            this.TotalHourslb.Size = new System.Drawing.Size(18, 20);
+            this.TotalHourslb.TabIndex = 5;
+            this.TotalHourslb.Text = "0";
+            this.TotalHourslb.Click += new System.EventHandler(this.label2_Click);
             // 
-            // label3
+            // CurrentDatalabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(728, 18);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Date Goes Here";
+            this.CurrentDatalabel.AutoSize = true;
+            this.CurrentDatalabel.Location = new System.Drawing.Point(674, 366);
+            this.CurrentDatalabel.Name = "CurrentDatalabel";
+            this.CurrentDatalabel.Size = new System.Drawing.Size(84, 13);
+            this.CurrentDatalabel.TabIndex = 6;
+            this.CurrentDatalabel.Text = "Date Goes Here";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(658, 18);
+            this.label4.Location = new System.Drawing.Point(604, 366);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 13);
             this.label4.TabIndex = 7;
@@ -107,10 +113,54 @@
             // panel1
             // 
             this.panel1.AutoScroll = true;
-            this.panel1.Location = new System.Drawing.Point(129, 375);
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(129, 388);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(915, 127);
+            this.panel1.Size = new System.Drawing.Size(915, 251);
             this.panel1.TabIndex = 11;
+            // 
+            // button2
+            // 
+            this.button2.Enabled = false;
+            this.button2.Location = new System.Drawing.Point(1080, 403);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(120, 37);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Remove Last Update";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // PieChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.PieChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.PieChart.Legends.Add(legend1);
+            this.PieChart.Location = new System.Drawing.Point(129, 50);
+            this.PieChart.Name = "PieChart";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            series1.Points.Add(dataPoint1);
+            series1.Points.Add(dataPoint2);
+            series1.Points.Add(dataPoint3);
+            series1.Points.Add(dataPoint4);
+            series1.Points.Add(dataPoint5);
+            this.PieChart.Series.Add(series1);
+            this.PieChart.Size = new System.Drawing.Size(462, 300);
+            this.PieChart.TabIndex = 13;
+            this.PieChart.Text = "chart1";
+            // 
+            // reportType
+            // 
+            this.reportType.AutoSize = true;
+            this.reportType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportType.Location = new System.Drawing.Point(126, 362);
+            this.reportType.Name = "reportType";
+            this.reportType.Size = new System.Drawing.Size(116, 18);
+            this.reportType.TabIndex = 14;
+            this.reportType.Text = "Date Goes Here";
             // 
             // ProjectEffortManagement
             // 
@@ -118,17 +168,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoScrollMargin = new System.Drawing.Size(0, 15);
+            this.Controls.Add(this.reportType);
+            this.Controls.Add(this.PieChart);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.PanelContainer);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.CurrentDatalabel);
+            this.Controls.Add(this.TotalHourslb);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.button1);
             this.Name = "ProjectEffortManagement";
             this.Size = new System.Drawing.Size(1200, 728);
             this.Load += new System.EventHandler(this.ProjectEffortManagement_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.PieChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,12 +189,14 @@
 
         #endregion
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label TotalHourslb;
+        private System.Windows.Forms.Label CurrentDatalabel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel PanelContainer;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart PieChart;
+        private System.Windows.Forms.Label reportType;
     }
 }

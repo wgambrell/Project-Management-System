@@ -14,6 +14,7 @@ namespace ProjectManagementApp
     {
         private TableLayoutPanel InfoTable2 = new TableLayoutPanel();
         private Panel temppanel = new Panel();
+        private DateTime date = DateTime.Now;
         public int b;
 
 
@@ -52,6 +53,15 @@ namespace ProjectManagementApp
             else
                 InfoTable2.BringToFront();
 
+            reportType.Text = Project.Instance.getDateType();
+            CurrentDatalabel.Text = date.Day.ToString() + "/" + date.Month.ToString() + "/" + date.Year.ToString();
+
+            PieChart.Series["Series1"].Points[0].SetValueXY("Management", 0);
+            PieChart.Series["Series1"].Points[1].SetValueXY("Requirements", 0);
+            PieChart.Series["Series1"].Points[2].SetValueXY("Design", 0);
+            PieChart.Series["Series1"].Points[3].SetValueXY("Implementation", 0);
+            PieChart.Series["Series1"].Points[4].SetValueXY("Testing", 0);
+
         }
         private static ProjectEffortManagement _instance;
 
@@ -63,6 +73,12 @@ namespace ProjectManagementApp
                     _instance = new ProjectEffortManagement();
                 return _instance;
             }
+        }
+
+        public Label totalLabel
+        {
+            get { return TotalHourslb; }
+            set { TotalHourslb = value; }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -100,19 +116,36 @@ namespace ProjectManagementApp
             {
                 ProjectEffortAddPopup.Instance.BringToFront();
             }
-
-            InfoTable2.RowCount++;
-            InfoTable2.Height += 10;
-         
-            InfoTable2.RowStyles.Add(new RowStyle(SizeType.AutoSize, 20F));
-            b++;
-            InfoTable2.Controls.Add(new Label() { Text = "Management, \n  State " + b , Height = 40 }, 0, InfoTable2.RowCount - 1);
-            InfoTable2.Controls.Add(new Label() { Text = "Implementation" }, 1, InfoTable2.RowCount - 1);
-            InfoTable2.Controls.Add(new Label() { Text = "Testing" }, 2, InfoTable2.RowCount - 1);
             
 
             DateTime time = DateTime.Now;
             ProjectEffortAddPopup.Instance.TimeLabel.Text = time.Day.ToString() + "/" + time.Month.ToString() + "/" + time.Year.ToString();
+
+            button2.Enabled = true;
+        }
+
+
+
+        //Add a new row to the table display populated with the added effort information
+        public void AddTableRow(int management, int requirements, int design, int implementation, int testing, DateTime stamp)
+        {
+            InfoTable2.RowCount++;
+            InfoTable2.Height += 10;
+            int location = InfoTable2.RowStyles.Count - 1;
+            InfoTable2.RowStyles.Add( new RowStyle(SizeType.AutoSize, 20F));
+            //b++;
+            foreach (Control con in InfoTable2.Controls)
+            {
+                InfoTable2.SetRow(con, InfoTable2.GetRow(con) + 1);
+            }
+
+
+            InfoTable2.Controls.Add(new Label() { Text = "Date: \n" + stamp, Height = 40 }, 0, 0);
+            InfoTable2.Controls.Add(new Label() { Text = "Management: \n" + management + " hrs", Height = 40 }, 1, 0);
+            InfoTable2.Controls.Add(new Label() { Text = "Requirements: \n" + requirements + " hrs", Height = 40 }, 2, 0);
+            InfoTable2.Controls.Add(new Label() { Text = "Design: \n" + design + " hrs", Height = 40 }, 3, 0);
+            InfoTable2.Controls.Add(new Label() { Text = "Implementation: \n " + implementation + " hrs", Height = 40 }, 4, 0);
+            InfoTable2.Controls.Add(new Label() { Text = "Testing: \n" + testing + " hrs", Height = 40 }, 5, 0);
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -128,6 +161,46 @@ namespace ProjectManagementApp
         private void ProjectEffortManagement_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < InfoTable2.ColumnCount; i++)
+            {
+                var control = InfoTable2.GetControlFromPosition(i, 0);
+                InfoTable2.Controls.Remove(control);
+            }
+            InfoTable2.RowCount--;
+            //if (InfoTable2.RowCount == 0)
+            button2.Enabled = false;
+            //InfoTable2.RowStyles.RemoveAt(0);
+            //InfoTable2.RowCount--;
+            //foreach (Control con in InfoTable2.Controls)
+            //{
+            //InfoTable2.SetRow(con, InfoTable2.GetRow(con) - 1);
+            //}
+        }
+
+        // Updates the chart by erasing chart data and rebuilding the chart
+        public void updatePieChart(int management, int requirements, int design, int implementation, int testing)
+        {
+            PieChart.Series.Clear();
+            PieChart.Series.Add("Series1");
+            PieChart.Series["Series1"].IsValueShownAsLabel = true;
+            //PieChart.Series["Series1"].Label = "#PERCENT{0.00 %}";
+           
+            PieChart.Series["Series1"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            PieChart.Series["Series1"].Points.Add(0);
+            PieChart.Series["Series1"].Points[0].SetValueXY("Management: " + management + " hrs", management);
+            PieChart.Series["Series1"].Points.Add(0);
+            PieChart.Series["Series1"].Points[1].SetValueXY("Requirements: " + requirements + " hrs", requirements);
+            PieChart.Series["Series1"].Points.Add(0);
+            PieChart.Series["Series1"].Points[2].SetValueXY("Design: " + design + " hrs", design);
+            PieChart.Series["Series1"].Points.Add(0);
+            PieChart.Series["Series1"].Points[3].SetValueXY("Implementation: " + implementation + " hrs", implementation);
+            PieChart.Series["Series1"].Points.Add(0);
+            PieChart.Series["Series1"].Points[4].SetValueXY("Testing: " + testing + " hrs", testing);
+            PieChart.Update(); 
         }
     }
 }

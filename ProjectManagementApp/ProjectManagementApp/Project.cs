@@ -202,6 +202,37 @@ namespace ProjectManagementApp
         {
             nonFuncReq.Remove(s);
         }
+        public String getDateType()
+        {
+            if (daytime == 7)
+                return "Weekly Reports";
+            else if (daytime == 1)
+                return "Daily Reports";
+            else
+                return "Daily Reports";
+        }
 
+        // Get all hours from each effort and compile a total, then return an array of the total efforts
+         public int[] getHours()
+        {
+            int[] temp = new int[6];
+            int total = 0, management = 0, requirement =0, design = 0, implementation = 0, testing = 0;
+            foreach(var item in effortList)
+            {
+                management += item.getcategory[0];
+                requirement += item.getcategory[1];
+                design += item.getcategory[2];
+                implementation += item.getcategory[3];
+                testing += item.getcategory[4];
+            }
+            total = management + requirement + design + implementation + testing;
+            temp[0] = management;
+            temp[1] = requirement;
+            temp[2] = design;
+            temp[3] = implementation;
+            temp[4] = testing;
+            temp[5] = total;
+            return temp;
+        } 
     }
 }

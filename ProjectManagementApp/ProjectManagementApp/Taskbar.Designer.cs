@@ -67,9 +67,10 @@
             // ProjectName
             // 
             this.ProjectName.AutoSize = true;
-            this.ProjectName.Location = new System.Drawing.Point(540, 14);
+            this.ProjectName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProjectName.Location = new System.Drawing.Point(585, 4);
             this.ProjectName.Name = "ProjectName";
-            this.ProjectName.Size = new System.Drawing.Size(68, 13);
+            this.ProjectName.Size = new System.Drawing.Size(100, 20);
             this.ProjectName.TabIndex = 3;
             this.ProjectName.Text = "ProjectName";
             this.ProjectName.Click += new System.EventHandler(this.ProjectName_Click);
