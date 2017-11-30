@@ -22,6 +22,7 @@ namespace ProjectManagementApp
                 return _instance;
             }
         }
+
         private String projectName;
         private String managerName;
         private int daytime;
@@ -31,7 +32,9 @@ namespace ProjectManagementApp
         private ArrayList funcReq = new ArrayList();
         private ArrayList nonFuncReq = new ArrayList();
         private List<Effort> effortList = new List<Effort>();
-        
+        private String path;
+
+
 
         public void SetInitialVariables(String prjname, String mgrname, String prjDescription, String timeday)
         {
@@ -73,10 +76,52 @@ namespace ProjectManagementApp
                 ProjectProfileWindow.Instance.NonfuncRequirements.Items.Add(item);
             }
         }
+        public void ReadFile(String fileName)
+        {
+            path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System" + "\\" + fileName + ".txt";
+            StreamReader sr = new StreamReader(path);
+            projectName = sr.ReadLine();
+            managerName = sr.ReadLine();
+            projectDescription = sr.ReadLine();
+            String memList = sr.ReadLine();
+            while(memList != "")
+            {
+                projectMembers.Add(memList.Substring(0, memList.IndexOf("*")));
+                memList = memList.Substring(memList.IndexOf("*") + 3);
+            }
+            String riskList = sr.ReadLine();
+            if (riskList != "")
+            {
+                while (riskList != "")
+                {
+                    risks.Add(riskList.Substring(0, riskList.IndexOf("*")));
+                    riskList = riskList.Substring(riskList.IndexOf("*") + 3);
+                }
+            }
+            daytime = Int32.Parse(sr.ReadLine());
+            String funcList = sr.ReadLine();
+            if (funcList != "")
+            {
+                while (funcList != "")
+                {
+                    funcReq.Add(funcList.Substring(0, funcList.IndexOf("*")));
+                    funcList = funcList.Substring(funcList.IndexOf("*") + 3);
+                }
+            }
+            String nonFuncList = sr.ReadLine();
+            if (nonFuncList != "")
+            {
+                while (nonFuncList != "")
+                {
+                    nonFuncReq.Add(nonFuncList.Substring(0, nonFuncList.IndexOf("*")));
+                    nonFuncList = nonFuncList.Substring(nonFuncList.IndexOf("*") + 3);
+                }
+            }
+        }
 
         public void RewriteFile()   //Rebuilds file with new shtuff
         {
-            String path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System" + "\\" + projectName + ".txt";
+            path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System" + "\\" + projectName + ".txt";
             File.WriteAllText(path, null);
             using (TextWriter tw = new StreamWriter(path, true))
             {

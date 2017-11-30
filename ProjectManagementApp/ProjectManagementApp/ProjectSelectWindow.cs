@@ -63,43 +63,47 @@ namespace ProjectManagementApp
 
         private void SelProjButton_Click(object sender, EventArgs e)
         {
-            // create files and save data
-            //SaveFile(path);
-
-            // set mandatory variables on profile
-            //Project.Instance.SetInitialVariables(ProjectNameTextBox.Text, ProjectManagerTextBox.Text, DescriptionTextBox.Text, comboBox1.SelectedItem.ToString());
-            //Project.Instance.SetOptionalVariables(TeamMembersListBox, RiskListBox);
-
-            //Creates taskbar
-            if (!ProjectManagementSystem.Instance.PanelBarControls.Controls.Contains(Taskbar.Instance))
+            if (SelProjList.SelectedItem != null)
             {
-                ProjectManagementSystem.Instance.PanelBarControls.Controls.Add(Taskbar.Instance);
-                Taskbar.Instance.Dock = DockStyle.Fill;
-                Taskbar.Instance.BringToFront();
-            }
-            else
-            {
-                Taskbar.Instance.BringToFront();
-            }
-            //Creates Project Profile window and sets it to open
-            if (!ProjectManagementSystem.Instance.Panel1Control.Controls.Contains(ProjectProfileWindow.Instance))
-            {
-                ProjectManagementSystem.Instance.Panel1Control.Controls.Add(ProjectProfileWindow.Instance);
-                ProjectProfileWindow.Instance.Dock = DockStyle.Fill;
-                ProjectProfileWindow.Instance.BringToFront();
-            }
-            else
-            {
-                ProjectProfileWindow.Instance.BringToFront();
-            }
-            //Create Project Effort page
-            ProjectManagementSystem.Instance.Panel1Control.Controls.Add(ProjectEffortManagement.Instance);
-            ProjectEffortManagement.Instance.Dock = DockStyle.Fill;
+                Project.Instance.ReadFile(SelProjList.SelectedItem.ToString().Substring(0, SelProjList.SelectedItem.ToString().IndexOf(".")));
+                // create files and save data
+                //SaveFile(path);
 
-            ProjectManagementSystem.Instance.Panel1Control.Controls.Remove(InitialProjectSetupWindow.Instance);
+                // set mandatory variables on profile
+                //Project.Instance.SetInitialVariables(ProjectNameTextBox.Text, ProjectManagerTextBox.Text, DescriptionTextBox.Text, comboBox1.SelectedItem.ToString());
+                //Project.Instance.SetOptionalVariables(TeamMembersListBox, RiskListBox);
 
-            //Set ProjectProfileWIndow and Taskbar text
-            //SetProjectProfilePage();
+                //Creates taskbar
+                if (!ProjectManagementSystem.Instance.PanelBarControls.Controls.Contains(Taskbar.Instance))
+                {
+                    ProjectManagementSystem.Instance.PanelBarControls.Controls.Add(Taskbar.Instance);
+                    Taskbar.Instance.Dock = DockStyle.Fill;
+                    Taskbar.Instance.BringToFront();
+                }
+                else
+                {
+                    Taskbar.Instance.BringToFront();
+                }
+                //Creates Project Profile window and sets it to open
+                if (!ProjectManagementSystem.Instance.Panel1Control.Controls.Contains(ProjectProfileWindow.Instance))
+                {
+                    ProjectManagementSystem.Instance.Panel1Control.Controls.Add(ProjectProfileWindow.Instance);
+                    ProjectProfileWindow.Instance.Dock = DockStyle.Fill;
+                    ProjectProfileWindow.Instance.BringToFront();
+                }
+                else
+                {
+                    ProjectProfileWindow.Instance.BringToFront();
+                }
+                //Create Project Effort page
+                ProjectManagementSystem.Instance.Panel1Control.Controls.Add(ProjectEffortManagement.Instance);
+                ProjectEffortManagement.Instance.Dock = DockStyle.Fill;
+
+                ProjectManagementSystem.Instance.Panel1Control.Controls.Remove(InitialProjectSetupWindow.Instance);
+
+                //Set ProjectProfileWIndow and Taskbar text
+                //SetProjectProfilePage();
+            }
         }
 
         private void CreNewProButton_Click(object sender, EventArgs e)

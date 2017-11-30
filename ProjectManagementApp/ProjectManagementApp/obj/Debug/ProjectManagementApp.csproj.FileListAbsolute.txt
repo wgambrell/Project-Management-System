@@ -1,6 +1,4 @@
 C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.csprojResolveAssemblyReference.cache
-C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.InitialProjectSetup.resources
-C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.ProjectSelectForm.resources
 C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.Properties.Resources.resources
 C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.csproj.GenerateResource.Cache
 C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.csproj.CoreCompileInputs.cache
@@ -9,7 +7,6 @@ C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementAp
 C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\bin\Debug\ProjectManagementApp.pdb
 C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.exe
 C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.pdb
-C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.ProjectViewForm.resources
 C:\Users\jhbla\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\bin\Debug\ProjectManagementApp.exe.config
 C:\Users\jhbla\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\bin\Debug\ProjectManagementApp.exe
 C:\Users\jhbla\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\bin\Debug\ProjectManagementApp.pdb
@@ -42,3 +39,11 @@ C:\Users\jhbla\Documents\GitHub\Project-Management-System\ProjectManagementApp\P
 C:\Users\jhbla\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.ProjectProfileWindow.resources
 C:\Users\jhbla\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.Taskbar.resources
 C:\Users\tyler_000\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.ProjectEffortAddPopup.resources
+C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.InitialProjectSetupWindow.resources
+C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.ProjectEditWindow.resources
+C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.ProjectEffortAddPopup.resources
+C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.ProjectEffortManagement.resources
+C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.ProjectManagementSystem.resources
+C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.ProjectProfileWindow.resources
+C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.ProjectSelectWindow.resources
+C:\Users\JHBlancs\Documents\GitHub\Project-Management-System\ProjectManagementApp\ProjectManagementApp\obj\Debug\ProjectManagementApp.Taskbar.resources
