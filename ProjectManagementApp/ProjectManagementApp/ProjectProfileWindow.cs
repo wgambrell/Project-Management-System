@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Collections;
 namespace ProjectManagementApp
 {
     public partial class ProjectProfileWindow : UserControl
@@ -25,6 +25,32 @@ namespace ProjectManagementApp
                 if (_instance == null)
                     _instance = new ProjectProfileWindow();
                 return _instance;
+            }
+        }
+        private void ProjectProfileWindow_Load(object sender, EventArgs e)  //populates all boxes with information of selected project.
+        {
+            ProjectLeaderTextBox.Text = Project.Instance.projectNameControls;
+            ProjectDescriptionTextBox.Text = Project.Instance.projectDescriptionControls;
+            ArrayList temp = new ArrayList();
+            temp = Project.Instance.projectMembersControl;
+            foreach (String s in temp)
+            {
+                TeamMemberListBox.Items.Add(s);
+            }
+            temp = Project.Instance.projectRiskControl;
+            foreach(String s in temp)
+            {
+                RiskListBox.Items.Add(s);
+            }
+            temp = Project.Instance.FuncReqControl;
+            foreach (String s in temp)
+            {
+                FunctionalRequirementsListBox.Items.Add(s);
+            }
+            temp = Project.Instance.NonFuncReqControl;
+            foreach(String s in temp)
+            {
+                NonfunctionalRequirementsListBox.Items.Add(s);
             }
         }
         public ListBox teamMemberListControls
@@ -131,11 +157,6 @@ namespace ProjectManagementApp
             {
                 ProjectEditWindow.Instance.RiskListControls.Items.Add(item);
             }
-        }
-
-        private void ProjectProfileWindow_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
