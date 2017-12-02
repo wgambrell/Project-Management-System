@@ -71,7 +71,6 @@
             this.ProjectLeaderTextBox.Size = new System.Drawing.Size(364, 20);
             this.ProjectLeaderTextBox.TabIndex = 3;
             this.ProjectLeaderTextBox.Text = "ProjectLeader";
-            this.ProjectLeaderTextBox.TextChanged += new System.EventHandler(this.ProjectLeaderTextBox_TextChanged);
             // 
             // label2
             // 
@@ -81,7 +80,6 @@
             this.label2.Size = new System.Drawing.Size(96, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "Project Description";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // ProjectDescriptionTextBox
             // 
@@ -92,7 +90,6 @@
             this.ProjectDescriptionTextBox.Size = new System.Drawing.Size(364, 96);
             this.ProjectDescriptionTextBox.TabIndex = 6;
             this.ProjectDescriptionTextBox.Text = "ProjectDescription";
-            this.ProjectDescriptionTextBox.TextChanged += new System.EventHandler(this.ProjectDescriptionTextBox_TextChanged);
             // 
             // label3
             // 
@@ -110,7 +107,6 @@
             this.TeamMemberListBox.Name = "TeamMemberListBox";
             this.TeamMemberListBox.Size = new System.Drawing.Size(364, 147);
             this.TeamMemberListBox.TabIndex = 8;
-            this.TeamMemberListBox.SelectedIndexChanged += new System.EventHandler(this.TeamMemberListBox_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -128,7 +124,6 @@
             this.RiskListBox.Name = "RiskListBox";
             this.RiskListBox.Size = new System.Drawing.Size(364, 147);
             this.RiskListBox.TabIndex = 10;
-            this.RiskListBox.SelectedIndexChanged += new System.EventHandler(this.RiskListBox_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -146,7 +141,6 @@
             this.FunctionalRequirementsListBox.Name = "FunctionalRequirementsListBox";
             this.FunctionalRequirementsListBox.Size = new System.Drawing.Size(506, 173);
             this.FunctionalRequirementsListBox.TabIndex = 12;
-            this.FunctionalRequirementsListBox.SelectedIndexChanged += new System.EventHandler(this.FunctionalRequirementsListBox_SelectedIndexChanged);
             // 
             // NonfunctionalRequirementsListBox
             // 
@@ -155,7 +149,6 @@
             this.NonfunctionalRequirementsListBox.Name = "NonfunctionalRequirementsListBox";
             this.NonfunctionalRequirementsListBox.Size = new System.Drawing.Size(506, 173);
             this.NonfunctionalRequirementsListBox.TabIndex = 13;
-            this.NonfunctionalRequirementsListBox.SelectedIndexChanged += new System.EventHandler(this.NonfunctionalRequirementsListBox_SelectedIndexChanged);
             // 
             // label6
             // 

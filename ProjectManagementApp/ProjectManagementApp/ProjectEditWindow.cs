@@ -53,6 +53,17 @@ namespace ProjectManagementApp
             set { TeamMemberListBox1 = value; }
         }
 
+        public ListBox FuncReqsListControls
+        {
+            get { return FunctionalReqListBox; }
+            set { FunctionalReqListBox = value; }
+        }
+
+        public ListBox NonFuncReqsListControls
+        {
+            get { return NonFunctionalReqListBox; }
+            set { NonFunctionalReqListBox = value; }
+        }
         private void ProjectEditWindow_Load(object sender, EventArgs e)
         {
 

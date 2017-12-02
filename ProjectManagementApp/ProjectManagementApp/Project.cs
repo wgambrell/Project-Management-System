@@ -31,12 +31,12 @@ namespace ProjectManagementApp
         private ArrayList risks = new ArrayList();
         private ArrayList funcReq = new ArrayList();
         private ArrayList nonFuncReq = new ArrayList();
-        private List<Effort> effortList = new List<Effort>();
+        private List<Effort> effortList = new List<Effort>();   //NOT SUPPORTED
         private String path;
 
 
 
-        public void SetInitialVariables(String prjname, String mgrname, String prjDescription, String timeday)
+        public void SetInitialVariables(String prjname, String mgrname, String prjDescription, String timeday)  //Used to initialize a project file when it's first created.
         {
             projectName = prjname;
             managerName = mgrname;
@@ -47,7 +47,7 @@ namespace ProjectManagementApp
                 daytime = 1;
 
         }
-        public void setProfilePage()
+        public void setProfilePage()    //sets all windows in ProjectProfileWindow
         {
             ProjectProfileWindow.Instance.projecManagerControls.Text = managerName;
             ProjectProfileWindow.Instance.projecDescriptionControls.Text = projectDescription;
@@ -64,19 +64,19 @@ namespace ProjectManagementApp
                 ProjectProfileWindow.Instance.RiskListControls.Items.Add(item);
             }
 
-            ProjectProfileWindow.Instance.funcRequirements.Items.Clear();
+            ProjectProfileWindow.Instance.funcRequirementsControls.Items.Clear();
             foreach (var item in funcReq)
             {
-                ProjectProfileWindow.Instance.funcRequirements.Items.Add(item);
+                ProjectProfileWindow.Instance.funcRequirementsControls.Items.Add(item);
             }
 
-            ProjectProfileWindow.Instance.NonfuncRequirements.Items.Clear();
+            ProjectProfileWindow.Instance.NonfuncRequirementsControls.Items.Clear();
             foreach (var item in nonFuncReq)
             {
-                ProjectProfileWindow.Instance.NonfuncRequirements.Items.Add(item);
+                ProjectProfileWindow.Instance.NonfuncRequirementsControls.Items.Add(item);
             }
         }
-        public void ReadFile(String fileName)
+        public void ReadFile(String fileName)   //Reads from a file to populate data in the project class. CURRENTLY DOES NOT SUPPORT EFFORT OFFLOAD.
         {
             path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System" + "\\" + fileName + ".txt";
             StreamReader sr = new StreamReader(path);
@@ -117,6 +117,7 @@ namespace ProjectManagementApp
                     nonFuncList = nonFuncList.Substring(nonFuncList.IndexOf("*") + 3);
                 }
             }
+            sr.Close();
         }
 
         public void RewriteFile()   //Rebuilds file with new shtuff

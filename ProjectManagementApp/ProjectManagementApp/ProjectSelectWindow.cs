@@ -30,12 +30,12 @@ namespace ProjectManagementApp
         }
         public ProjectSelectWindow()
         {
-            InitializeComponent();
+            InitializeComponent(); //Opens projects folder
             pathfiles = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System";
             Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System");
             projects = Directory.GetFiles(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System");
             projectSaves = Directory.GetFiles(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System");
-            for (int i = 0; i < projects.Length; i++)
+            for (int i = 0; i < projects.Length; i++)   //Removes all the mile-long file path from the file names, to look more presentable!
             {
                 for (int j = projects[i].Length - 1; j > 0; j--)
                 {
@@ -106,7 +106,7 @@ namespace ProjectManagementApp
             }
         }
 
-        private void CreNewProButton_Click(object sender, EventArgs e)
+        private void CreNewProButton_Click(object sender, EventArgs e)  //Transfers to InitialProjectSetup page
         {
             ProjectManagementSystem.Instance.Panel1Control.Controls.Add(InitialProjectSetupWindow.Instance);
             InitialProjectSetupWindow.Instance.BringToFront();

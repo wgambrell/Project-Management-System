@@ -192,7 +192,7 @@ namespace ProjectManagementApp
         }
 
 
-        private void SaveFile(String path)
+        private void SaveFile(String path)  //Saves edited data to the file. This needs to be replaced by the Project.cs -> RewriteFile function somewhow.
         {
             File.Create(path).Close();
             using (TextWriter tw = new StreamWriter(path, true))

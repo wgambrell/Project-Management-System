@@ -27,8 +27,8 @@ namespace ProjectManagementApp
                 return _instance;
             }
         }
-        private void ProjectProfileWindow_Load(object sender, EventArgs e)  //populates all boxes with information of selected project.
-        {
+        private void ProjectProfileWindow_Load(object sender, EventArgs e)  //populates all boxes with information of selected project. Only happens when the page loads. I need a way of CLOSING this page, so that this info re-populates every time this page opens.
+        {                                                                   //ALTERNATIVELY, look at Project.cs->SetProfilePage. That can be called from ANYWHERE in this program as long as the project form is open. We may retire this method.
             ProjectLeaderTextBox.Text = Project.Instance.projectNameControls;
             ProjectDescriptionTextBox.Text = Project.Instance.projectDescriptionControls;
             ArrayList temp = new ArrayList();
@@ -52,7 +52,9 @@ namespace ProjectManagementApp
             {
                 NonfunctionalRequirementsListBox.Items.Add(s);
             }
+
         }
+        //ACCESSOR METHODS
         public ListBox teamMemberListControls
         {
             get { return TeamMemberListBox; }
@@ -64,13 +66,13 @@ namespace ProjectManagementApp
             get { return RiskListBox; }
             set { RiskListBox = value; }
         }
-        public ListBox funcRequirements
+        public ListBox funcRequirementsControls
         {
             get { return FunctionalRequirementsListBox; }
             set { FunctionalRequirementsListBox = value; }
         }
 
-        public ListBox NonfuncRequirements
+        public ListBox NonfuncRequirementsControls
         {
             get { return NonfunctionalRequirementsListBox; }
             set { NonfunctionalRequirementsListBox = value; }
@@ -87,66 +89,29 @@ namespace ProjectManagementApp
             set { ProjectDescriptionTextBox = value; }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RiskListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TeamMemberListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ProjectDescriptionTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ProjectLeaderTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void NonfunctionalRequirementsListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FunctionalRequirementsListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void EditProfileButton_Click(object sender, EventArgs e)
         {
-            if (!ProjectManagementSystem.Instance.Panel1Control.Controls.Contains(ProjectEditWindow.Instance))
+            if (!ProjectManagementSystem.Instance.Panel1Control.Controls.Contains(ProjectEditWindow.Instance))  //Checks to see if an instance of this form is open, if not opens it.
             {
-                ProjectManagementSystem.Instance.Panel1Control.Controls.Add(ProjectEditWindow.Instance);
+                ProjectManagementSystem.Instance.Panel1Control.Controls.Add(ProjectEditWindow.Instance);    //Makes a new instance of ProjectEditWindow
                 ProjectEditWindow.Instance.Dock = DockStyle.Fill;
                 ProjectEditWindow.Instance.BringToFront();
+                ProjectManagementSystem.Instance.Panel1Control.Controls.Remove(ProjectProfileWindow.Instance);  //Deletes this instance of ProjectProfileWindow
+
             }
             else
             {
                 ProjectEditWindow.Instance.BringToFront();
             }
 
-            // Sets values on edit page
+            // Sets basic values on edit page
             ProjectEditWindow.Instance.projecManagerControls.Text = ProjectLeaderTextBox.Text;
             ProjectEditWindow.Instance.projecDescriptionControls.Text = ProjectDescriptionTextBox.Text;
-
-            // Sets valuse for lists
+            // Sets values for lists - clearing to remove any danger of contamination
             ProjectEditWindow.Instance.teamMemberListControls.Items.Clear();
             ProjectEditWindow.Instance.RiskListControls.Items.Clear();
+            ProjectEditWindow.Instance.FuncReqsListControls.Items.Clear();
+            ProjectEditWindow.Instance.NonFuncReqsListControls.Items.Clear();
 
             foreach (var item in Project.Instance.projectMembersControl)
             {
@@ -156,6 +121,14 @@ namespace ProjectManagementApp
             foreach (var item in Project.Instance.projectRiskControl)
             {
                 ProjectEditWindow.Instance.RiskListControls.Items.Add(item);
+            }
+            foreach (var item in Project.Instance.FuncReqControl)
+            {
+                ProjectEditWindow.Instance.FuncReqsListControls.Items.Add(item);
+            }
+            foreach (var item in Project.Instance.NonFuncReqControl)
+            {
+                ProjectEditWindow.Instance.NonFuncReqsListControls.Items.Add(item);
             }
         }
     }
