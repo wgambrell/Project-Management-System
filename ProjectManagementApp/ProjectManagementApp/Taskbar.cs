@@ -54,7 +54,6 @@ namespace ProjectManagementApp
             if (!ProjectManagementSystem.Instance.Panel1Control.Controls.Contains(ProjectSelectWindow.Instance))
             {
                 ProjectManagementSystem.Instance.Panel1Control.Controls.Add(ProjectSelectWindow.Instance);
-                
                 ProjectSelectWindow.Instance.Dock = DockStyle.Fill;
                 ProjectSelectWindow.Instance.BringToFront();
             }
@@ -62,7 +61,6 @@ namespace ProjectManagementApp
             {
                 ProjectSelectWindow.Instance.BringToFront();
             }
-            ProjectSelectWindow.Instance.ProjectSelectWindow_Reload();
         }
     }
 }

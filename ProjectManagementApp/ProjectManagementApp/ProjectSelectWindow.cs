@@ -51,28 +51,6 @@ namespace ProjectManagementApp
 
         }
 
-        public void ProjectSelectWindow_Reload()
-        {
-            SelProjList.Items.Clear();
-            pathfiles = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System";
-            Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System");
-            projects = Directory.GetFiles(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System");
-            projectSaves = Directory.GetFiles(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System");
-            for (int i = 0; i < projects.Length; i++)   //Removes all the mile-long file path from the file names, to look more presentable!
-            {
-                for (int j = projects[i].Length - 1; j > 0; j--)
-                {
-                    String str = projects[i];
-                    if (str[j].ToString() == "\\")
-                    {
-                        projects[i] = projects[i].Substring(j + 1);
-                        break;
-                    }
-                }
-            }
-            SelProjList.Items.AddRange(projects);
-        }
-
         private void ProjectSelectWindow_Load(object sender, EventArgs e)
         {
 
