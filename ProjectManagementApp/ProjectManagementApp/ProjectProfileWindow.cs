@@ -66,6 +66,8 @@ namespace ProjectManagementApp
             FunctionalRequirementsListBox.Items.Clear();
             NonfunctionalRequirementsListBox.Items.Clear();
         }
+
+        // This is the same method as load
         public void ProjectProfileWindow_Reload()
         {
             ProjectLeaderTextBox.Text = Project.Instance.managerNameControls;

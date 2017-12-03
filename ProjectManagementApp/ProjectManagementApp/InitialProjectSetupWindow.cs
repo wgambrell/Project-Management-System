@@ -105,7 +105,7 @@ namespace ProjectManagementApp
             else
             {
                 ProjectProfileWindow.Instance.ProjectProfileWindow_Clear();
-//                ProjectProfileWindow.Instance.ProjectProfileWindow_Reload();
+                // ProjectProfileWindow.Instance.ProjectProfileWindow_Reload();
                 //ProjectProfileWindow.Instance.ProjectProfileWindow_Reload(ProjectSelectWindow.Instance.SelectedItem);
                 String path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System" + "\\" + ProjectNameTextBox.Text + ".txt";
                 if (!File.Exists(path))
@@ -146,7 +146,7 @@ namespace ProjectManagementApp
                     ProjectManagementSystem.Instance.Panel1Control.Controls.Remove(InitialProjectSetupWindow.Instance);
                     //ProjectProfileWindow.Instance.ProjectProfileWindow_Reload();
                     //Set ProjectProfileWIndow and Taskbar text
-                    //SetProjectProfilePage();
+                    SetProjectProfilePage();
                 }
                 else if (File.Exists(path))
                 {
