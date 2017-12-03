@@ -129,7 +129,16 @@ namespace ProjectManagementApp
             Project.Instance.setProfilePage();
 
             Project.Instance.RewriteFile(); //Rewrites the file, passing the buck to the Project.cs file for a sec
-            ProjectProfileWindow.Instance.BringToFront();   //Switches back to project profile window
+            if (!ProjectManagementSystem.Instance.Panel1Control.Controls.Contains(ProjectProfileWindow.Instance))
+            {
+                ProjectManagementSystem.Instance.Panel1Control.Controls.Add(ProjectProfileWindow.Instance);
+                ProjectProfileWindow.Instance.Dock = DockStyle.Fill;
+                ProjectProfileWindow.Instance.BringToFront();
+            }
+            else
+            {
+                ProjectProfileWindow.Instance.BringToFront();   //Switches back to project profile window
+            }
         }
 
         private void AddFuncReqButton_Click(object sender, EventArgs e)
