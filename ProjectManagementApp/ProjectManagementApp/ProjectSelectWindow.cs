@@ -115,9 +115,12 @@ namespace ProjectManagementApp
 
         private void DelSelProjButton_Click(object sender, EventArgs e)
         {
-            String s = SelProjList.SelectedItem.ToString();
-            File.Delete(pathfiles + " \\" + s);
-            SelProjList.Items.Remove(SelProjList.SelectedItem);
+            if (SelProjList.SelectedItem != null)
+            {
+                String s = SelProjList.SelectedItem.ToString();
+                File.Delete(pathfiles + " \\" + s);
+                SelProjList.Items.Remove(SelProjList.SelectedItem);
+            }
         }
     }
 }
