@@ -61,6 +61,7 @@ namespace ProjectManagementApp
             {
                 ProjectSelectWindow.Instance.BringToFront();
             }
+            ProjectSelectWindow.Instance.ProjectSelectWindow_Reload();
         }
     }
 }
