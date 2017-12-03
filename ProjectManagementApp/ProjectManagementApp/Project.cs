@@ -96,37 +96,65 @@ namespace ProjectManagementApp
             managerName = sr.ReadLine();
             projectDescription = sr.ReadLine();
             String memList = sr.ReadLine();
-            while(memList != "")
+            try
             {
-                projectMembers.Add(memList.Substring(0, memList.IndexOf("*")));
-                memList = memList.Substring(memList.IndexOf("*") + 3);
+                while (memList != "")
+                {
+                    projectMembers.Add(memList.Substring(0, memList.IndexOf("*")));
+                    memList = memList.Substring(memList.IndexOf("*") + 3);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("No more members found." + ex.Message);
             }
             String riskList = sr.ReadLine();
             if (riskList != "")
             {
-                while (riskList != "")
+                try
                 {
-                    risks.Add(riskList.Substring(0, riskList.IndexOf("*")));
-                    riskList = riskList.Substring(riskList.IndexOf("*") + 3);
+                    while (riskList != "")
+                    {
+                        risks.Add(riskList.Substring(0, riskList.IndexOf("*")));
+                        riskList = riskList.Substring(riskList.IndexOf("*") + 3);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("No more risks found." + ex.Message);
                 }
             }
             daytime = Int32.Parse(sr.ReadLine());
             String funcList = sr.ReadLine();
             if (funcList != "")
             {
-                while (funcList != "")
+                try
                 {
-                    funcReq.Add(funcList.Substring(0, funcList.IndexOf("*")));
-                    funcList = funcList.Substring(funcList.IndexOf("*") + 3);
+                    while (funcList != "")
+                    {
+                        funcReq.Add(funcList.Substring(0, funcList.IndexOf("*")));
+                        funcList = funcList.Substring(funcList.IndexOf("*") + 3);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("No more functional requirements found." + ex.Message);
                 }
             }
             String nonFuncList = sr.ReadLine();
             if (nonFuncList != "")
             {
-                while (nonFuncList != "")
+                try
                 {
-                    nonFuncReq.Add(nonFuncList.Substring(0, nonFuncList.IndexOf("*")));
-                    nonFuncList = nonFuncList.Substring(nonFuncList.IndexOf("*") + 3);
+                    while (nonFuncList != "")
+                    {
+                        nonFuncReq.Add(nonFuncList.Substring(0, nonFuncList.IndexOf("*")));
+                        nonFuncList = nonFuncList.Substring(nonFuncList.IndexOf("*") + 3);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("No more nonfunctional requirements found." + ex.Message);
                 }
             }
             sr.Close();
