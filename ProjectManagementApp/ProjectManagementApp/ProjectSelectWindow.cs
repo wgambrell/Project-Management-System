@@ -125,10 +125,11 @@ namespace ProjectManagementApp
                 ProjectManagementSystem.Instance.Panel1Control.Controls.Remove(InitialProjectSetupWindow.Instance);
 
                 Taskbar.Instance.projectTitleControls.Text = Project.Instance.projectNameControls;
-                //ProjectProfileWindow.Instance.ProjectProfileWindow_Reload();
+                ProjectProfileWindow.Instance.ProjectProfileWindow_Reload();
 
                 //Set ProjectProfileWIndow and Taskbar text
-                //SetProjectProfilePage();
+                //InitialProjectSetupWindow.Instance.SetProjectProfilePage();
+
             }
         }
 

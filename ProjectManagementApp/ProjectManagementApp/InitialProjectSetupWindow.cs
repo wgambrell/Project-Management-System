@@ -172,13 +172,14 @@ namespace ProjectManagementApp
         {
 
         }
-        private void SetProjectProfilePage()
+        public void SetProjectProfilePage()
         {
             Taskbar.Instance.projectTitleControls.Text = Project.Instance.projectNameControls;
             ProjectProfileWindow.Instance.projecManagerControls.Text = Project.Instance.managerNameControls;
             ProjectProfileWindow.Instance.projecDescriptionControls.Text = Project.Instance.projectDescriptionControls;
             //adds Members list to page
-            /*
+            
+            
             foreach (var item in Project.Instance.projectMembersControl)
             {
                 ProjectProfileWindow.Instance.teamMemberListControls.Items.Add(item);
@@ -188,7 +189,8 @@ namespace ProjectManagementApp
             {
                 ProjectProfileWindow.Instance.RiskListControls.Items.Add(item);
             }
-            */
+            
+            
 
         }
 

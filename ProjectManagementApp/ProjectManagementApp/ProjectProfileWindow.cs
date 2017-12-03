@@ -16,6 +16,7 @@ namespace ProjectManagementApp
         {
             InitializeComponent();
         }
+
         private static ProjectProfileWindow _instance;
 
         public static ProjectProfileWindow Instance
@@ -33,7 +34,7 @@ namespace ProjectManagementApp
             ProjectDescriptionTextBox.Text = Project.Instance.projectDescriptionControls;
             ArrayList temp = new ArrayList();
             temp = Project.Instance.projectMembersControl;
-            foreach (String s in temp)
+           /* foreach (String s in temp)
             {
                 TeamMemberListBox.Items.Add(s);
             }
@@ -52,7 +53,9 @@ namespace ProjectManagementApp
             {
                 NonfunctionalRequirementsListBox.Items.Add(s);
             }
-        }
+            //InitialProjectSetupWindow.Instance.SetProjectProfilePage();
+            */
+        } 
         public void ProjectProfileWindow_Clear()
         {
             ProjectLeaderTextBox.Text = "";
