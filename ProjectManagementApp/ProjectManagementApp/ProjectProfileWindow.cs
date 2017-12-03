@@ -29,7 +29,7 @@ namespace ProjectManagementApp
         }
         private void ProjectProfileWindow_Load(object sender, EventArgs e)  //populates all boxes with information of selected project. Only happens when the page loads. I need a way of CLOSING this page, so that this info re-populates every time this page opens.
         {                                                                   //ALTERNATIVELY, look at Project.cs->SetProfilePage. That can be called from ANYWHERE in this program as long as the project form is open. We may retire this method.
-            ProjectLeaderTextBox.Text = Project.Instance.projectNameControls;
+            ProjectLeaderTextBox.Text = Project.Instance.managerNameControls;
             ProjectDescriptionTextBox.Text = Project.Instance.projectDescriptionControls;
             ArrayList temp = new ArrayList();
             temp = Project.Instance.projectMembersControl;
