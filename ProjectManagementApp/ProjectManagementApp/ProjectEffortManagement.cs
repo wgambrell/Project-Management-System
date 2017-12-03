@@ -54,7 +54,7 @@ namespace ProjectManagementApp
             else
                 InfoTable2.BringToFront();
 
-            reportType.Text = Project.Instance.getDateType();
+            //reportType.Text = Project.Instance.getDateType();
             CurrentDatalabel.Text = date.Month.ToString() + "/" + date.Day.ToString() + "/" + date.Year.ToString();
 
 
@@ -66,6 +66,8 @@ namespace ProjectManagementApp
 
         }
         private static ProjectEffortManagement _instance;
+
+        
 
         public static ProjectEffortManagement Instance
         {
@@ -81,6 +83,12 @@ namespace ProjectManagementApp
         {
             get { return TotalHourslb; }
             set { TotalHourslb = value; }
+        }
+
+        public Label reportLabel
+        {
+            get { return reportType; }
+            set { reportType = value; }
         }
 
         private void label1_Click(object sender, EventArgs e)

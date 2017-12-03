@@ -41,6 +41,7 @@ namespace ProjectManagementApp
         private void ProjectEffort_Click(object sender, EventArgs e)
         {
             ProjectEffortManagement.Instance.BringToFront();
+            ProjectEffortManagement.Instance.reportLabel.Text = Project.Instance.getDateType();
         }
 
         private void ProjectProfileButton_Click(object sender, EventArgs e)
