@@ -34,6 +34,11 @@ namespace ProjectManagementApp
         private List<Effort> effortList = new List<Effort>();   //NOT SUPPORTED
         private String path;
 
+        public int EffortListCount
+        {
+            get { return effortList.Count; }
+        }
+
 
 
         public void SetInitialVariables(String prjname, String mgrname, String prjDescription, String timeday)  //Used to initialize a project file when it's first created.

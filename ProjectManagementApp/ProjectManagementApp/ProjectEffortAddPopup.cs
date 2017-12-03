@@ -61,22 +61,41 @@ namespace ProjectManagementApp
         {
             DateTime date = DateTime.Now;
             int manage, req, des, imp, test;
-            manage = Int32.Parse(ManagementTB.Text);
-            req = Int32.Parse(RequirementsTB.Text);
-            des = Int32.Parse(DesignTB.Text);
-            imp = Int32.Parse(ImplemenationTB.Text);
-            test = Int32.Parse(TestingTB.Text);
 
-            Effort ef = new Effort(manage, req, des, imp, test, date);
-            Project.Instance.EffortControl.Add(ef);
-            ProjectEffortManagement.Instance.AddTableRow(manage, req, des, imp, test, date);
-            //DateTime data =  Project.Instance.EffortControl.Last<Effort>().timeControl;
+            
+            try
+            {
+                manage = Int32.Parse(ManagementTB.Text);
+                req = Int32.Parse(RequirementsTB.Text);
+                des = Int32.Parse(DesignTB.Text);
+                imp = Int32.Parse(ImplemenationTB.Text);
+                test = Int32.Parse(TestingTB.Text);
 
-            ProjectEffortManagement.Instance.BringToFront();
-            resetLabels();
-            int[] temp = Project.Instance.getHours();
-            ProjectEffortManagement.Instance.updatePieChart(temp[0], temp[1], temp[2], temp[3], temp[4]);
-            ProjectEffortManagement.Instance.totalLabel.Text = temp[5].ToString() ;
+                Effort ef = new Effort(manage, req, des, imp, test, date);
+                Project.Instance.EffortControl.Add(ef);
+                ProjectEffortManagement.Instance.AddTableRow(manage, req, des, imp, test, date);
+                //DateTime data =  Project.Instance.EffortControl.Last<Effort>().timeControl;
+
+                ProjectEffortManagement.Instance.BringToFront();
+                resetLabels();
+                int[] temp = Project.Instance.getHours();
+                ProjectEffortManagement.Instance.updatePieChart(temp[0], temp[1], temp[2], temp[3], temp[4]);
+                ProjectEffortManagement.Instance.totalLabel.Text = temp[5].ToString();
+                InvalidValuesError.Enabled = false;
+                InvalidValuesError.Visible = false;
+            }
+            catch(Exception ex)
+            {
+                InvalidValuesError.Enabled = true;
+                InvalidValuesError.Visible = true;
+                string error = ex.Message;
+                Console.WriteLine(ex.Message);
+                manage = 0;
+                req = 0;
+                des = 0;
+                imp = 0;
+                test = 0;
+            }
         }
     }
 }

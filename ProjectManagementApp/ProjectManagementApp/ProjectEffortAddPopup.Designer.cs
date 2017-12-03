@@ -42,6 +42,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.SubmitDate = new System.Windows.Forms.Label();
+            this.InvalidValuesError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -174,11 +175,24 @@
             this.SubmitDate.TabIndex = 13;
             this.SubmitDate.Text = "SubmitDate";
             // 
+            // InvalidValuesError
+            // 
+            this.InvalidValuesError.Enabled = false;
+            this.InvalidValuesError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.InvalidValuesError.Location = new System.Drawing.Point(20, 252);
+            this.InvalidValuesError.Name = "InvalidValuesError";
+            this.InvalidValuesError.Size = new System.Drawing.Size(236, 46);
+            this.InvalidValuesError.TabIndex = 14;
+            this.InvalidValuesError.Text = "Error: Values invalid. Please enter numeric values only.";
+            this.InvalidValuesError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.InvalidValuesError.Visible = false;
+            // 
             // ProjectEffortAddPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Controls.Add(this.InvalidValuesError);
             this.Controls.Add(this.SubmitDate);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button2);
@@ -217,5 +231,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label SubmitDate;
+        private System.Windows.Forms.Label InvalidValuesError;
     }
 }

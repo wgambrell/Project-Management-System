@@ -15,6 +15,7 @@ namespace ProjectManagementApp
         private TableLayoutPanel InfoTable2 = new TableLayoutPanel();
         private Panel temppanel = new Panel();
         private DateTime date = DateTime.Now;
+        private Project pj = new Project();
         public int b;
 
 
@@ -152,6 +153,8 @@ namespace ProjectManagementApp
             InfoTable2.Controls.Add(new Label() { Text = "Design: \n" + design + " hrs", Height = 40 }, 3, 0);
             InfoTable2.Controls.Add(new Label() { Text = "Implementation: \n " + implementation + " hrs", Height = 40 }, 4, 0);
             InfoTable2.Controls.Add(new Label() { Text = "Testing: \n" + testing + " hrs", Height = 40 }, 5, 0);
+
+            button2.Enabled = true;
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -197,9 +200,11 @@ namespace ProjectManagementApp
 
             InfoTable2.RowCount--;
             warningLabel.Text = "";
-            
-            
 
+            if (pj.EffortListCount == 0)
+            {
+                button2.Enabled = false;
+            }
         }
 
         public void OpenPopup()
@@ -220,7 +225,7 @@ namespace ProjectManagementApp
                 DateTime time = DateTime.Now;
                 ProjectEffortAddPopup.Instance.TimeLabel.Text = time.Month.ToString() + "/" + time.Day.ToString() + "/" + time.Year.ToString();
 
-                button2.Enabled = true;
+                //button2.Enabled = true;
         
         }
 
