@@ -144,9 +144,9 @@ namespace ProjectManagementApp
                     ProjectEffortManagement.Instance.Dock = DockStyle.Fill;
 
                     ProjectManagementSystem.Instance.Panel1Control.Controls.Remove(InitialProjectSetupWindow.Instance);
-                    ProjectProfileWindow.Instance.ProjectProfileWindow_Reload();
+                    //ProjectProfileWindow.Instance.ProjectProfileWindow_Reload();
                     //Set ProjectProfileWIndow and Taskbar text
-                    SetProjectProfilePage();
+                    //SetProjectProfilePage();
                 }
                 else if (File.Exists(path))
                 {
