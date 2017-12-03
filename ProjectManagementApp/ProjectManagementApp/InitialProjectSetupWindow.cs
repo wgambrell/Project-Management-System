@@ -104,6 +104,9 @@ namespace ProjectManagementApp
             }
             else
             {
+                ProjectProfileWindow.Instance.ProjectProfileWindow_Clear();
+//                ProjectProfileWindow.Instance.ProjectProfileWindow_Reload();
+                //ProjectProfileWindow.Instance.ProjectProfileWindow_Reload(ProjectSelectWindow.Instance.SelectedItem);
                 String path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System" + "\\" + ProjectNameTextBox.Text + ".txt";
                 if (!File.Exists(path))
                 {
@@ -141,7 +144,7 @@ namespace ProjectManagementApp
                     ProjectEffortManagement.Instance.Dock = DockStyle.Fill;
 
                     ProjectManagementSystem.Instance.Panel1Control.Controls.Remove(InitialProjectSetupWindow.Instance);
-
+                    ProjectProfileWindow.Instance.ProjectProfileWindow_Reload();
                     //Set ProjectProfileWIndow and Taskbar text
                     SetProjectProfilePage();
                 }
@@ -157,11 +160,7 @@ namespace ProjectManagementApp
             ProjectManagementSystem.Instance.Panel1Control.Controls.Add(ProjectSelectWindow.Instance);
             ProjectSelectWindow.Instance.BringToFront();
             InitialProjectSetupWindow.Instance.Refresh();
-            ProjectManagerTextBox.Text = "";
-            ProjectNameTextBox.Text = "";
-            DescriptionTextBox.Text = "";
-            TeamMembersListBox.Items.Clear();
-            RiskListBox.Items.Clear();
+            InitialProjectSetupWindow_Clear();
         }
 
         private void InitialProjectSetupWindow_Load(object sender, EventArgs e)
@@ -239,6 +238,17 @@ namespace ProjectManagementApp
         {
             RiskListBox.Items.Remove(RiskListBox.SelectedItem);
             RisksRemoveButton.Enabled = false;
+        }
+
+        public void InitialProjectSetupWindow_Clear()
+        {
+            ProjectManagerTextBox.Text = "";
+            ProjectNameTextBox.Text = "";
+            DescriptionTextBox.Text = "";
+            comboBox1.Text = "";
+            TeamMembersListBox.Items.Clear();
+            RiskListBox.Items.Clear();
+            
         }
     }
 }

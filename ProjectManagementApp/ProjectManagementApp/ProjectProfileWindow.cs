@@ -52,7 +52,45 @@ namespace ProjectManagementApp
             {
                 NonfunctionalRequirementsListBox.Items.Add(s);
             }
-
+        }
+        public void ProjectProfileWindow_Clear()
+        {
+            ProjectLeaderTextBox.Text = "";
+            ProjectDescriptionTextBox.Text = "";
+            Project.Instance.projectMembersControl.Clear();
+            Project.Instance.projectRiskControl.Clear();
+            Project.Instance.FuncReqControl.Clear();
+            Project.Instance.NonFuncReqControl.Clear();
+            TeamMemberListBox.Items.Clear();
+            RiskListBox.Items.Clear();
+            FunctionalRequirementsListBox.Items.Clear();
+            NonfunctionalRequirementsListBox.Items.Clear();
+        }
+        public void ProjectProfileWindow_Reload()
+        {
+            ProjectLeaderTextBox.Text = Project.Instance.managerNameControls;
+            ProjectDescriptionTextBox.Text = Project.Instance.projectDescriptionControls;
+            ArrayList temp = new ArrayList();
+            temp = Project.Instance.projectMembersControl;
+            foreach (String s in temp)
+            {
+                TeamMemberListBox.Items.Add(s);
+            }
+            temp = Project.Instance.projectRiskControl;
+            foreach (String s in temp)
+            {
+                RiskListBox.Items.Add(s);
+            }
+            temp = Project.Instance.FuncReqControl;
+            foreach (String s in temp)
+            {
+                FunctionalRequirementsListBox.Items.Add(s);
+            }
+            temp = Project.Instance.NonFuncReqControl;
+            foreach (String s in temp)
+            {
+                NonfunctionalRequirementsListBox.Items.Add(s);
+            }
         }
         //ACCESSOR METHODS
         public ListBox teamMemberListControls

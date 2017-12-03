@@ -87,6 +87,7 @@ namespace ProjectManagementApp
         {
             if (SelProjList.SelectedItem != null)
             {
+                ProjectProfileWindow.Instance.ProjectProfileWindow_Clear();
                 Project.Instance.ReadFile(SelProjList.SelectedItem.ToString().Substring(0, SelProjList.SelectedItem.ToString().IndexOf(".")));
                 // create files and save data
                 //SaveFile(path);
@@ -124,6 +125,7 @@ namespace ProjectManagementApp
                 ProjectManagementSystem.Instance.Panel1Control.Controls.Remove(InitialProjectSetupWindow.Instance);
 
                 Taskbar.Instance.projectTitleControls.Text = Project.Instance.projectNameControls;
+                ProjectProfileWindow.Instance.ProjectProfileWindow_Reload();
 
                 //Set ProjectProfileWIndow and Taskbar text
                 //SetProjectProfilePage();
@@ -135,6 +137,7 @@ namespace ProjectManagementApp
             ProjectManagementSystem.Instance.Panel1Control.Controls.Add(InitialProjectSetupWindow.Instance);
             InitialProjectSetupWindow.Instance.BringToFront();
             ProjectManagementSystem.Instance.Panel1Control.Controls.Remove(ProjectSelectWindow.Instance);
+            InitialProjectSetupWindow.Instance.InitialProjectSetupWindow_Clear();
         }
 
         private void DelSelProjButton_Click(object sender, EventArgs e)

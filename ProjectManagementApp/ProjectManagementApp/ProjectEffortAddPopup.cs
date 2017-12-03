@@ -65,11 +65,11 @@ namespace ProjectManagementApp
             
             try
             {
-                manage = Int32.Parse(ManagementTB.Text);
-                req = Int32.Parse(RequirementsTB.Text);
-                des = Int32.Parse(DesignTB.Text);
-                imp = Int32.Parse(ImplemenationTB.Text);
-                test = Int32.Parse(TestingTB.Text);
+                manage = Math.Abs(Int32.Parse(ManagementTB.Text));
+                req = Math.Abs(Int32.Parse(RequirementsTB.Text));
+                des = Math.Abs(Int32.Parse(DesignTB.Text));
+                imp = Math.Abs(Int32.Parse(ImplemenationTB.Text));
+                test = Math.Abs(Int32.Parse(TestingTB.Text));
 
                 Effort ef = new Effort(manage, req, des, imp, test, date);
                 Project.Instance.EffortControl.Add(ef);
