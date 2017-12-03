@@ -76,6 +76,13 @@ namespace ProjectManagementApp
                 ProjectProfileWindow.Instance.NonfuncRequirementsControls.Items.Add(item);
             }
         }
+
+        public int getTimeInteger
+        {
+            get { return daytime; }
+            set { daytime = value; }
+        }
+
         public void ReadFile(String fileName)   //Reads from a file to populate data in the project class. CURRENTLY DOES NOT SUPPORT EFFORT OFFLOAD.
         {
             path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System" + "\\" + fileName + ".txt";
@@ -257,8 +264,21 @@ namespace ProjectManagementApp
             else
                 return "Daily Reports";
         }
+         
+        public void removeLastEffort()
+        {
+            effortList.RemoveAt(effortList.Count - 1);
+        }
+        public Effort getLastEffort()
+        {
+            return effortList[effortList.Count - 1];
+        }
+        public int getEffortListSize()
+        {
+            return effortList.Count;
+        }
 
-        // Get all hours from each effort and compile a total, then return an array of the total efforts
+         // Get all hours from each effort and compile a total, then return an array of the total efforts
          public int[] getHours()
         {
             int[] temp = new int[6];

@@ -23,8 +23,8 @@ namespace ProjectManagementApp
             InitializeComponent();
             b = 0;
 
+            warningLabel.Text = "";
 
-            
             InfoTable2.ColumnCount = 6;
             InfoTable2.RowCount = 100;
             InfoTable2.AutoSize = true;
@@ -54,7 +54,8 @@ namespace ProjectManagementApp
                 InfoTable2.BringToFront();
 
             reportType.Text = Project.Instance.getDateType();
-            CurrentDatalabel.Text = date.Day.ToString() + "/" + date.Month.ToString() + "/" + date.Year.ToString();
+            CurrentDatalabel.Text = date.Month.ToString() + "/" + date.Day.ToString() + "/" + date.Year.ToString();
+
 
             PieChart.Series["Series1"].Points[0].SetValueXY("Management", 0);
             PieChart.Series["Series1"].Points[1].SetValueXY("Requirements", 0);
@@ -104,24 +105,29 @@ namespace ProjectManagementApp
         private void button1_Click(object sender, EventArgs e)
         {
             //int x = (ProjectManagementSystem.Instance.Panel1Control.Size. - label1.Size.Width) / 2;
-
-            if (!ProjectManagementSystem.Instance.Panel1Control.Controls.Contains(ProjectEffortAddPopup.Instance))
+            DateTime date = DateTime.Now;
+            if (Project.Instance.getEffortListSize() == 0)
             {
-                ProjectManagementSystem.Instance.Panel1Control.Controls.Add(ProjectEffortAddPopup.Instance);
-                ProjectEffortAddPopup.Instance.Location = new Point(300, 200);
-                ProjectEffortAddPopup.Instance.Dock = DockStyle.None;
-                ProjectEffortAddPopup.Instance.BringToFront();
+                OpenPopup();
+                warningLabel.Text = "";
+            }
+            else if(Project.Instance.getLastEffort().timeControl.Day - date.Day < Project.Instance.getTimeInteger && Project.Instance.getEffortListSize() != 0)
+            {
+                int timeleft = Project.Instance.getLastEffort().timeControl.Day - date.Day + 7;
+                if(Project.Instance.getTimeInteger == 1)
+                {
+                    warningLabel.Text = "You have to wait a day before adding an update";
+                }
+                else
+                {
+                  warningLabel.Text = "You have to wait " + timeleft + " days before adding an update";
+                }
             }
             else
             {
-                ProjectEffortAddPopup.Instance.BringToFront();
+                OpenPopup();
+                warningLabel.Text = "";
             }
-            
-
-            DateTime time = DateTime.Now;
-            ProjectEffortAddPopup.Instance.TimeLabel.Text = time.Day.ToString() + "/" + time.Month.ToString() + "/" + time.Year.ToString();
-
-            button2.Enabled = true;
         }
 
 
@@ -170,15 +176,49 @@ namespace ProjectManagementApp
                 var control = InfoTable2.GetControlFromPosition(i, 0);
                 InfoTable2.Controls.Remove(control);
             }
+            Project.Instance.removeLastEffort();
+
+            for (int i =  1; i < InfoTable2.RowCount; i++)
+            {
+                for (int k = 0; k < InfoTable2.ColumnCount; k++)
+                {
+                    var control = InfoTable2.GetControlFromPosition(k, i);
+                    if (control != null)
+                    {
+                        InfoTable2.SetRow(control, i - 1);
+                    }
+                }
+            }
+
+
+            int[] temp = Project.Instance.getHours();
+            updatePieChart(temp[0], temp[1], temp[2], temp[3], temp[4]);
+
             InfoTable2.RowCount--;
-            //if (InfoTable2.RowCount == 0)
-            button2.Enabled = false;
-            //InfoTable2.RowStyles.RemoveAt(0);
-            //InfoTable2.RowCount--;
-            //foreach (Control con in InfoTable2.Controls)
-            //{
-            //InfoTable2.SetRow(con, InfoTable2.GetRow(con) - 1);
-            //}
+            warningLabel.Text = "";
+           
+        }
+
+        public void OpenPopup()
+        {
+                if (!ProjectManagementSystem.Instance.Panel1Control.Controls.Contains(ProjectEffortAddPopup.Instance))
+                {
+                    ProjectManagementSystem.Instance.Panel1Control.Controls.Add(ProjectEffortAddPopup.Instance);
+                    ProjectEffortAddPopup.Instance.Location = new Point(300, 200);
+                    ProjectEffortAddPopup.Instance.Dock = DockStyle.None;
+                    ProjectEffortAddPopup.Instance.BringToFront();
+                }
+                else
+                {
+                    ProjectEffortAddPopup.Instance.BringToFront();
+                }
+
+
+                DateTime time = DateTime.Now;
+                ProjectEffortAddPopup.Instance.TimeLabel.Text = time.Month.ToString() + "/" + time.Day.ToString() + "/" + time.Year.ToString();
+
+                button2.Enabled = true;
+        
         }
 
         // Updates the chart by erasing chart data and rebuilding the chart
