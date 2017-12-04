@@ -158,7 +158,7 @@ namespace ProjectManagementApp
             }
 
 
-            InfoTable2.Controls.Add(new Label() { Text = "Date: \n" + stamp, Height = 40 }, 0, 0);
+            InfoTable2.Controls.Add(new Label() { Text = "Date: \n" + stamp.Month +"/"+ stamp.Day + "/"+stamp.Year, Height = 40 }, 0, 0);
             InfoTable2.Controls.Add(new Label() { Text = "Management: \n" + management + " hrs", Height = 40 }, 1, 0);
             InfoTable2.Controls.Add(new Label() { Text = "Requirements: \n" + requirements + " hrs", Height = 40 }, 2, 0);
             InfoTable2.Controls.Add(new Label() { Text = "Design: \n" + design + " hrs", Height = 40 }, 3, 0);

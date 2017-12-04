@@ -239,6 +239,7 @@ namespace ProjectManagementApp
                 s = "";
                 foreach (var item in effortList)
                 {
+                    
                     s += item.timeControl.ToString() + "&" + item.getcategory[0] + "#" + item.getcategory[1] + "#" + item.getcategory[2] + "#" + item.getcategory[3] + "#" + item.getcategory[4] + "*@*";
                 }
                 tw.WriteLine(s);
