@@ -285,7 +285,7 @@ namespace ProjectManagementApp
         public void add()
         {
             List<Effort> listtemp = Project.Instance.EffortControl;
-            for (int i = 0; i < listtemp.Count - 1; i++)
+            for (int i = 0; i < listtemp.Count ; i++)
             {
                 AddTableRow(listtemp[i].getcategory[0], listtemp[i].getcategory[1], listtemp[i].getcategory[2], listtemp[i].getcategory[3], listtemp[i].getcategory[4], listtemp[i].timeControl);
             }

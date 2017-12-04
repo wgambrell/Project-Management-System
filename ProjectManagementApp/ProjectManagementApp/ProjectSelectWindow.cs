@@ -89,6 +89,7 @@ namespace ProjectManagementApp
             {
                 
                 ProjectProfileWindow.Instance.ProjectProfileWindow_Clear();
+                Project.Instance.EffortControl.Clear();
                 Project.Instance.ReadFile(SelProjList.SelectedItem.ToString().Substring(0, SelProjList.SelectedItem.ToString().IndexOf(".")));
                 // create files and save data
                 //SaveFile(path);
