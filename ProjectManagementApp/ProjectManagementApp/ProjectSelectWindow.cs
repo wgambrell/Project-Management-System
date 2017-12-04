@@ -158,6 +158,8 @@ namespace ProjectManagementApp
             {
                 String s = SelProjList.SelectedItem.ToString();
                 File.Delete(pathfiles + " \\" + s);
+                if (ProjectProfileWindow.Instance != null)
+                    ProjectProfileWindow.Instance.ProjectProfileWindow_Clear();
                 SelProjList.Items.Remove(SelProjList.SelectedItem);
             }
         }

@@ -162,6 +162,7 @@
             this.AddFunctionalRequirementTextBox.Size = new System.Drawing.Size(346, 20);
             this.AddFunctionalRequirementTextBox.TabIndex = 28;
             this.AddFunctionalRequirementTextBox.Text = "Add Functional Requirement";
+            this.AddFunctionalRequirementTextBox.Enter += new System.EventHandler(this.AddFuncRequirementTextBoxTextBox_Click);
             // 
             // AddNonFunctRequirement
             // 
@@ -170,6 +171,7 @@
             this.AddNonFunctRequirement.Size = new System.Drawing.Size(346, 20);
             this.AddNonFunctRequirement.TabIndex = 29;
             this.AddNonFunctRequirement.Text = "Add Non-Functional Requirement";
+            this.AddNonFunctRequirement.Enter += new System.EventHandler(this.AddNonFuncRequirement_Click);
             // 
             // AddFuncReqButton
             // 
@@ -198,6 +200,7 @@
             this.AddTeamMemberTextBox.Size = new System.Drawing.Size(267, 20);
             this.AddTeamMemberTextBox.TabIndex = 32;
             this.AddTeamMemberTextBox.Text = "Add Team Member";
+            this.AddTeamMemberTextBox.Enter += new System.EventHandler(this.AddTeamMemberTextBox_Click);
             // 
             // AddTeamMemberButton
             // 
@@ -216,6 +219,7 @@
             this.AddRiskTextBox.Size = new System.Drawing.Size(267, 20);
             this.AddRiskTextBox.TabIndex = 34;
             this.AddRiskTextBox.Text = "Add Risk";
+            this.AddRiskTextBox.Enter += new System.EventHandler(this.AddRiskTextBox_Click);
             // 
             // AddRisksButton
             // 

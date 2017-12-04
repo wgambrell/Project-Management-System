@@ -202,6 +202,21 @@ namespace ProjectManagementApp
             RiskListBox.Items.Remove(RiskListBox.SelectedItem);
             RemoveRiskButton.Enabled = false;
         }
-       
+        private void AddNonFuncRequirement_Click(object sender, EventArgs e)
+        {
+            AddNonFunctRequirement.Text = "";
+        }
+        private void AddFuncRequirementTextBoxTextBox_Click(object sender, EventArgs e)
+        {
+            AddFunctionalRequirementTextBox.Text = "";
+        }
+        private void AddTeamMemberTextBox_Click(object sender, EventArgs e)
+        {
+            AddTeamMemberTextBox.Text = "";
+        }
+        private void AddRiskTextBox_Click(object sender, EventArgs e)
+        {
+            AddRiskTextBox.Text = "";
+        }
     }
 }
