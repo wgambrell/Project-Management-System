@@ -160,6 +160,8 @@ namespace ProjectManagementApp
                 File.Delete(pathfiles + " \\" + s);
                 if (ProjectProfileWindow.Instance != null)
                     ProjectProfileWindow.Instance.ProjectProfileWindow_Clear();
+                if (ProjectEffortManagement.Instance != null)
+                    ProjectEffortManagement.Instance.ProjectEditManagement_Clear();
                 SelProjList.Items.Remove(SelProjList.SelectedItem);
             }
         }

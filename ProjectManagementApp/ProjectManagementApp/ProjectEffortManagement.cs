@@ -182,6 +182,11 @@ namespace ProjectManagementApp
         {
 
         }
+        public void ProjectEditManagement_Clear()
+        {
+            InfoTable2.Controls.Clear();
+            PieChart.Controls.Clear();
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
