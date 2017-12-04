@@ -216,6 +216,7 @@ namespace ProjectManagementApp
             {
                 button2.Enabled = false;
             }
+            Project.Instance.RewriteFile();
         }
 
         public void OpenPopup()
