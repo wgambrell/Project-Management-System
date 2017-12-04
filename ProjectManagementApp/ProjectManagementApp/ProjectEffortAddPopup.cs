@@ -12,7 +12,7 @@ namespace ProjectManagementApp
 {
     public partial class ProjectEffortAddPopup : UserControl
     {
-        private DateTime date;
+        //private DateTime date;
         private String currentTime;
         public ProjectEffortAddPopup()
         {
