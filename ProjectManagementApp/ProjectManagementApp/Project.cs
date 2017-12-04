@@ -90,6 +90,7 @@ namespace ProjectManagementApp
 
         public void ReadFile(String fileName)   //Reads from a file to populate data in the project class. CURRENTLY DOES NOT SUPPORT EFFORT OFFLOAD.
         {
+           
             path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System" + "\\" + fileName + ".txt";
             StreamReader sr = new StreamReader(path);
             projectName = sr.ReadLine();
@@ -157,6 +158,47 @@ namespace ProjectManagementApp
                     Console.WriteLine("No more nonfunctional requirements found." + ex.Message);
                 }
             }
+
+            
+            String effortString = sr.ReadLine();
+            if (effortString != "")
+            {
+                try
+                {
+                    while (effortString != "")
+                    {
+                        String dateStamp = effortString.Substring(0, effortString.IndexOf("&"));
+                        DateTime setStamp = Convert.ToDateTime(dateStamp);   
+                        effortString = effortString.Substring(effortString.IndexOf("&") + 1);
+
+                        int int1 = Int32.Parse(effortString.Substring(0, effortString.IndexOf("#")));
+                        effortString = effortString.Substring(effortString.IndexOf("#") + 1);
+
+                        int int2 = Int32.Parse(effortString.Substring(0, effortString.IndexOf("#")));
+                        effortString = effortString.Substring(effortString.IndexOf("#") + 1);
+
+                        int int3 = Int32.Parse(effortString.Substring(0, effortString.IndexOf("#")));
+                        effortString = effortString.Substring(effortString.IndexOf("#") + 1);
+
+                        int int4 = Int32.Parse(effortString.Substring(0, effortString.IndexOf("#")));
+                        effortString = effortString.Substring(effortString.IndexOf("#") + 1);
+
+                        int int5 = Int32.Parse(effortString.Substring(0, effortString.IndexOf("*")));
+                        //effortString = effortString.Substring(effortString.IndexOf("") + 1);
+
+
+                        Effort tempE = new Effort(int1, int2, int3, int4, int5, setStamp);
+                        effortList.Add(tempE);
+
+                        effortString = effortString.Substring(nonFuncList.IndexOf("*") + 3);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("No Effort Found." + ex.Message);
+                }
+            }
+            sr.Close();
             sr.Close();
         }
 
@@ -192,6 +234,12 @@ namespace ProjectManagementApp
                 foreach(var item in nonFuncReq)
                 {
                     s += item.ToString() + "*@*";
+                }
+                tw.WriteLine(s);
+                s = "";
+                foreach (var item in effortList)
+                {
+                    s += item.timeControl.ToString() + "&" + item.getcategory[0] + "#" + item.getcategory[1] + "#" + item.getcategory[2] + "#" + item.getcategory[3] + "#" + item.getcategory[4] + "*@*";
                 }
                 tw.WriteLine(s);
                 s = "";
@@ -310,7 +358,10 @@ namespace ProjectManagementApp
         {
             return effortList.Count;
         }
-
+        public void clearEffortList()
+        {
+            effortList.Clear();
+        }
          // Get all hours from each effort and compile a total, then return an array of the total efforts
          public int[] getHours()
         {

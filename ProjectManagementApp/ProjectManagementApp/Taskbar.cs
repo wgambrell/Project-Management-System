@@ -42,6 +42,12 @@ namespace ProjectManagementApp
         {
             ProjectEffortManagement.Instance.BringToFront();
             ProjectEffortManagement.Instance.reportLabel.Text = Project.Instance.getDateType();
+            int[] temp = Project.Instance.getHours();
+            ProjectEffortManagement.Instance.updatePieChart(temp[0], temp[1], temp[2], temp[3], temp[4]);
+            ProjectEffortManagement.Instance.totalLabel.Text = temp[5].ToString();
+
+            ProjectEffortManagement.Instance.clearAndFillTable();
+            //ProjectEffortManagement.Instance.add();
         }
 
         private void ProjectProfileButton_Click(object sender, EventArgs e)

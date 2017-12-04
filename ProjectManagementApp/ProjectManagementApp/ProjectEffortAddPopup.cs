@@ -83,6 +83,7 @@ namespace ProjectManagementApp
                 ProjectEffortManagement.Instance.totalLabel.Text = temp[5].ToString();
                 InvalidValuesError.Enabled = false;
                 InvalidValuesError.Visible = false;
+                Project.Instance.RewriteFile();
             }
             catch(Exception ex)
             {

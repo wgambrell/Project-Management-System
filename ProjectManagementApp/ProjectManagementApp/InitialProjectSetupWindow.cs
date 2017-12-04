@@ -105,6 +105,8 @@ namespace ProjectManagementApp
             else
             {
                 ProjectProfileWindow.Instance.ProjectProfileWindow_Clear();
+                
+                
                 // ProjectProfileWindow.Instance.ProjectProfileWindow_Reload();
                 //ProjectProfileWindow.Instance.ProjectProfileWindow_Reload(ProjectSelectWindow.Instance.SelectedItem);
                 String path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Project Management System" + "\\" + ProjectNameTextBox.Text + ".txt";
@@ -147,6 +149,13 @@ namespace ProjectManagementApp
                     //ProjectProfileWindow.Instance.ProjectProfileWindow_Reload();
                     //Set ProjectProfileWIndow and Taskbar text
                     SetProjectProfilePage();
+
+                    //update Piechart
+                    Project.Instance.clearEffortList();
+                    ProjectEffortManagement.Instance.clearAndFillTable();
+                    int[] temp = Project.Instance.getHours();
+                    ProjectEffortManagement.Instance.updatePieChart(temp[0], temp[1], temp[2], temp[3], temp[4]);
+                    ProjectEffortManagement.Instance.totalLabel.Text = temp[5].ToString();
                 }
                 else if (File.Exists(path))
                 {

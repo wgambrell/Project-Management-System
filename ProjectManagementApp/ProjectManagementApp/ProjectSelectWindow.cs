@@ -87,6 +87,7 @@ namespace ProjectManagementApp
         {
             if (SelProjList.SelectedItem != null)
             {
+                
                 ProjectProfileWindow.Instance.ProjectProfileWindow_Clear();
                 Project.Instance.ReadFile(SelProjList.SelectedItem.ToString().Substring(0, SelProjList.SelectedItem.ToString().IndexOf(".")));
                 // create files and save data
@@ -123,15 +124,24 @@ namespace ProjectManagementApp
                 ProjectEffortManagement.Instance.Dock = DockStyle.Fill;
 
                 ProjectManagementSystem.Instance.Panel1Control.Controls.Remove(InitialProjectSetupWindow.Instance);
+               
 
                 Taskbar.Instance.projectTitleControls.Text = Project.Instance.projectNameControls;
                 ProjectProfileWindow.Instance.ProjectProfileWindow_Reload();
-
+                loadPieChart();
+                ProjectEffortManagement.Instance.clearAndFillTable();
                 //Set ProjectProfileWIndow and Taskbar text
                 //InitialProjectSetupWindow.Instance.SetProjectProfilePage();
 
             }
         }
+        private void loadPieChart()
+        {
+            int[] temp = Project.Instance.getHours();
+            ProjectEffortManagement.Instance.updatePieChart(temp[0], temp[1], temp[2], temp[3], temp[4]);
+            ProjectEffortManagement.Instance.totalLabel.Text = temp[5].ToString();
+        }
+
 
         private void CreNewProButton_Click(object sender, EventArgs e)  //Transfers to InitialProjectSetup page
         {

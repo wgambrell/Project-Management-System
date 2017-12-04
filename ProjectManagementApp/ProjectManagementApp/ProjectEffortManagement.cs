@@ -64,6 +64,9 @@ namespace ProjectManagementApp
             PieChart.Series["Series1"].Points[3].SetValueXY("Implementation", 0);
             PieChart.Series["Series1"].Points[4].SetValueXY("Testing", 0);
 
+            //ProjectEffortManagement.Instance.clearAndFillTable();
+            //ProjectEffortManagement.Instance.add();
+
         }
         private static ProjectEffortManagement _instance;
 
@@ -257,6 +260,41 @@ namespace ProjectManagementApp
             PieChart.Series["Series1"].Points.Add(0);
             PieChart.Series["Series1"].Points[4].SetValueXY("Testing: " + testing + " hrs", testing);
             PieChart.Update(); 
+        }
+        public void clearAndFillTable()
+        {
+           
+            for (int i = 0; i < InfoTable2.RowCount; i++)
+            {
+                for (int j = 0; j < InfoTable2.ColumnCount; j++)
+                {
+                    var control = InfoTable2.GetControlFromPosition(j, i);
+                    InfoTable2.Controls.Remove(control);
+                   
+                }
+            }
+            int b = InfoTable2.RowCount;
+            for (int i = 0; i < b - 1; i++)
+            {
+                InfoTable2.RowCount--;
+            }
+
+                add();
+
+        }
+        public void add()
+        {
+            List<Effort> listtemp = Project.Instance.EffortControl;
+            for (int i = 0; i < listtemp.Count - 1; i++)
+            {
+                AddTableRow(listtemp[i].getcategory[0], listtemp[i].getcategory[1], listtemp[i].getcategory[2], listtemp[i].getcategory[3], listtemp[i].getcategory[4], listtemp[i].timeControl);
+            }
+        }
+      
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
